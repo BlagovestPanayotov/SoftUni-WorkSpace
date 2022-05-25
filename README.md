@@ -1,3 +1,4 @@
 # SoftUni-WorkSpace
-This line of text is for practising cinflict.
 Second conflict!!!
+Conflict number three!
+Conflict slved!
