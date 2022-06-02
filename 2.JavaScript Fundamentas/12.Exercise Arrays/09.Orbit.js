@@ -38,7 +38,8 @@ function orbit(input) {
     for (let arr of output) {
         console.log(arr.join(' '));
     }
+    // console.table(output);
 
 }
 
-orbit([3, 5, 2, 2]);
+orbit([5, 5, 0, 2]);
