@@ -6,15 +6,19 @@ function printDNA(input) {
     let counter = 1;
 
     for (let i = 0; i < input; i++) {
-        let element1 = sequence[index++];
-        if (index == sequence.length) {
-            index = 0;
-        }
-        let element2 = sequence[index++];
-        if (index == sequence.length) {
-            index = 0;
-        }
 
+        let element1 = sequence[index];
+        index = indexCheck(index);
+
+        let element2 = sequence[index];
+        index = indexCheck(index);
+
+
+        counter = printLine(counter,element1,element2);
+        
+    }
+
+    function printLine(counter,element1,element2){
         if (counter == 1) {
             console.log(`**${element1}${element2}**`);
             counter++;
@@ -28,6 +32,15 @@ function printDNA(input) {
             console.log(`*${element1}--${element2}*`);
             counter = 1;
         }
+        return counter;
+    }
+
+    function indexCheck(index){
+        index++;
+        if (index == sequence.length) {
+            index = 0;
+        }
+        return index;
     }
     
 }
