@@ -4,8 +4,17 @@ function bombNumbers(sequence, bomb) {
 
 
     while (sequence.includes(bombNum)) {
+
         let index = sequence.indexOf(bombNum);
-        sequence.splice((index - bombPower), (bombPower * 2 + 1));
+        let firstElement = index - bombPower;
+        let countElements = bombPower * 2 + 1;
+
+        if (firstElement < 0) {
+            countElements += firstElement;
+            firstElement = 0;
+        }
+
+        sequence.splice((firstElement), (countElements));
     }
 
     let sum = 0;
@@ -17,7 +26,4 @@ function bombNumbers(sequence, bomb) {
 }
 
 
-
-
-bombNumbers([1, 7, 7, 1, 2, 3], [7, 1]);
-bombNumbers([1, 1, 2, 1, 1, 1, 2, 1, 1, 1], [2, 1]);
+bombNumbers([2, 1, 1, 1, 2, 1], [2, 1]);
