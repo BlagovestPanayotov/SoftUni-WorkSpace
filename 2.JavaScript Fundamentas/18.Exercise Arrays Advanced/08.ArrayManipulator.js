@@ -60,11 +60,16 @@ function arrayManipulator(arr, commands) {
     }
 
     function shift(currentComand, arr) {
-        let index = Number(currentComand[1]);
-        if (index >= 0) {
-            let elements = arr.splice(0, index);
-            arr.push(...elements);
-        }
+        let rotation = Number(currentComand[1]);
+            for (let i = 0; i < rotation; i++) {
+                let remove = arr.shift();
+                arr.push(remove);
+            }
+        // let index = Number(currentComand[1]);
+        // if (index >= 0) {
+        //     let elements = arr.splice(0, index);
+        //     arr.push(...elements);
+        // }
     }
 
     function sumPairs(arr) {
