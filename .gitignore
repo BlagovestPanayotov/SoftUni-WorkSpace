@@ -8,4 +8,5 @@
 *.jpg#
 *.png
 *.png#
-
+*.txt
+*.txt#
