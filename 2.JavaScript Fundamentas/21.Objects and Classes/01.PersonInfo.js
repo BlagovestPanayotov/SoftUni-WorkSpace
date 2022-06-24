@@ -1,0 +1,19 @@
+function personInfo(firstName, lastName, age) {
+
+    let person = {
+        firstName,
+        lastName,
+        age,
+    };
+
+    return person;
+
+
+}
+
+console.table(personInfo("Peter",
+    "Pan",
+    "20"));
+personInfo("George",
+    "Smith",
+    "18");
