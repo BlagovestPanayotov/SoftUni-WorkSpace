@@ -18,6 +18,18 @@ function employees(input) {
     }
 
 }
+
+//alternative solution
+
+// function employees(input){
+//     let emp = {};
+//     for(let employee of input){
+//         emp.name = employee;
+//         emp.personalNumber = employee.length;
+//         console.log(`Name: ${emp.name} -- Personal Number: ${emp.personalNumber}`);
+//     }
+// }
+
 employees([
     'Silas Butler',
     'Adnaan Buckley',

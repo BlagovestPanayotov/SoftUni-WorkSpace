@@ -5,8 +5,9 @@ function classVehicle() {
             this.type = type;
             this.model = model;
             this.parts = parts;
-            this.parts.quality = function(){ return this.parts.engine*this.parts.power;};
+            this.parts.quality = this.parts.engine * this.parts.power;
             this.fuel = fuel;
+            
         }
 
         drive(fuelLost) {
@@ -19,6 +20,7 @@ function classVehicle() {
     vehicle.drive(100);
     console.log(vehicle.fuel);
     console.log(vehicle.parts.quality);
+    
 
 }
 classVehicle();
