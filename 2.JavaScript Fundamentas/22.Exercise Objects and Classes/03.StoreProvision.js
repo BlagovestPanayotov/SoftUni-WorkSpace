@@ -1,34 +1,28 @@
 function storeProvision(store, delivery) {
 
-    let storeAsArr = store;
-    let deliveryAsArr = delivery;
-
     let storeAsObj = {};
-    // let deliveryAsObj = {};
 
-    for (let i = 0; i < storeAsArr.length; i += 2) {
-        let key = storeAsArr[i];
-        let value = storeAsArr[i + 1];
+    for (let i = 0; i < store.length; i += 2) {
+        let key = store[i];
+        let value = store[i + 1];
 
         storeAsObj[key] = Number(value);
     }
 
-    for (let i = 0; i < deliveryAsArr.length; i += 2) {
-        let key = deliveryAsArr[i];
-        let value = deliveryAsArr[i + 1];
-        if (storeAsObj[key] === undefined) {
-            storeAsObj[key] = Number(value);
-        } else {
-            storeAsObj[key] += Number(value);
+    for (let i = 0; i < delivery.length; i += 2) {
+        let key = delivery[i];
+        let value = Number(delivery[i + 1]);
+        if (!storeAsObj.hasOwnProperty(key)) {
+            storeAsObj[key] = 0;
         }
+            storeAsObj[key] += value;
+        
 
     }
 
-    for(let key of Object.keys(storeAsObj)){
-        console.log(`${key} -> ${storeAsObj[key]}`);
+    for(let product in storeAsObj){
+        console.log(`${product} -> ${storeAsObj[product]}`);
     }
-
-    // console.log(JSON.stringify(storeAsObj));
 
 }
 

@@ -1,30 +1,48 @@
 function makeDictionary(input){
 
-    let dictionary = [];
-    let termsInDictionary = [];
+    let dictionary = {};
     for(let term of input){
         let currentTrem = JSON.parse(term);
-        let currentKeyTerm = Object.keys(currentTrem)[0];
-            if(termsInDictionary.includes(currentKeyTerm)){
-                for(let element of dictionary){
-                    if(Object.keys(element).includes(currentKeyTerm)){
-                        element[currentKeyTerm] = currentTrem[currentKeyTerm];
-                    }
-                }
-            }else{
-                dictionary.push(currentTrem);
-                termsInDictionary.push(currentKeyTerm);
-            }
+        let currentKeyTerm = Object.keys(currentTrem);
+        dictionary[currentKeyTerm[0]] = currentTrem[currentKeyTerm];
     }
 
-    dictionary.sort((a,b)=>Object.keys(a)[0].localeCompare(Object.keys(b)[0]));
+    let sorted = Object.keys(dictionary).sort((a,b)=>a.localeCompare(b));
 
-    for(let term of dictionary){
-        let cerrentKey = Object.keys(term)[0];
-        console.log(`Term: ${cerrentKey} => Definition: ${term[cerrentKey]}`);
+    for(let term of sorted){
+        console.log(`Term: ${term} => Definition: ${dictionary[term]}`);
     }
 
 }
+
+
+// function makeDictionary(input){
+
+//     let dictionary = [];
+//     let termsInDictionary = [];
+//     for(let term of input){
+//         let currentTrem = JSON.parse(term);
+//         let currentKeyTerm = Object.keys(currentTrem)[0];
+//             if(termsInDictionary.includes(currentKeyTerm)){
+//                 for(let element of dictionary){
+//                     if(Object.keys(element).includes(currentKeyTerm)){
+//                         element[currentKeyTerm] = currentTrem[currentKeyTerm];
+//                     }
+//                 }
+//             }else{
+//                 dictionary.push(currentTrem);
+//                 termsInDictionary.push(currentKeyTerm);
+//             }
+//     }
+
+//     dictionary.sort((a,b)=>Object.keys(a)[0].localeCompare(Object.keys(b)[0]));
+
+//     for(let term of dictionary){
+//         let cerrentKey = Object.keys(term)[0];
+//         console.log(`Term: ${cerrentKey} => Definition: ${term[cerrentKey]}`);
+//     }
+
+// }
 
 
 

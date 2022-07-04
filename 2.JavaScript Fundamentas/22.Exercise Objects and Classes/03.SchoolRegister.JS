@@ -12,9 +12,9 @@ function schoolRegister(input) {
 
     for (let student of input) {
         student = student.split(', ');
-        let name = student[0].split(' ')[2];
-        let grade = Number(student[1].split(' ')[1]);
-        let averageScore = Number(student[2].split(' ')[5]);
+        let name = student[0].replace('Student name: ','');
+        let grade = Number(student[1].replace('Grade: ',''));
+        let averageScore = Number(student[2].replace('Graduated with an average score: ',''));
         students.push(createStudent(name, grade, averageScore));
     }
 
@@ -83,12 +83,12 @@ schoolRegister([
     "Student name: Gavin, Grade: 10, Graduated with an average score: 4.00"
 ]);
 console.log('--------------------------------------');
-schoolRegister([
-    'Student name: George, Grade: 5, Graduated with an average score: 2.75',
-    'Student name: Alex, Grade: 9, Graduated with an average score: 3.66',
-    'Student name: Peter, Grade: 8, Graduated with an average score: 2.83',
-    'Student name: Boby, Grade: 5, Graduated with an average score: 4.20',
-    'Student name: John, Grade: 9, Graduated with an average score: 2.90',
-    'Student name: Steven, Grade: 2, Graduated with an average score: 4.90',
-    'Student name: Darsy, Grade: 1, Graduated with an average score: 5.15'
-]);
+// schoolRegister([
+//     'Student name: George, Grade: 5, Graduated with an average score: 2.75',
+//     'Student name: Alex, Grade: 9, Graduated with an average score: 3.66',
+//     'Student name: Peter, Grade: 8, Graduated with an average score: 2.83',
+//     'Student name: Boby, Grade: 5, Graduated with an average score: 4.20',
+//     'Student name: John, Grade: 9, Graduated with an average score: 2.90',
+//     'Student name: Steven, Grade: 2, Graduated with an average score: 4.90',
+//     'Student name: Darsy, Grade: 1, Graduated with an average score: 5.15'
+// ]);
