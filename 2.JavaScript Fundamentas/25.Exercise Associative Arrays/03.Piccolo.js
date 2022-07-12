@@ -1,23 +1,19 @@
 function piccolo(input) {
 
-    let parking = new Map();
+    let parking = new Set();
 
     input.forEach(car => {
         if (car.includes('IN')) {
-            parking.set(car.replace('IN, ', ''), 'IN');
+            parking.add(car.replace('IN, ', ''), 'IN');
         } else if (car.includes('OUT')) {
             parking.delete(car.replace('OUT, ', ''));
         }
     });
 
-    let result = Array.from(parking.keys())
-        .filter(x => parking.get(x) !== 'OUT')
-        .sort((a, b) => a.slice(0, 3).localeCompare(b.slice(0, 3))
-            || Number(a.slice(2, 6)) - Number(b.slice(2, 6))
-            || a.slice(-2).localeCompare(b.slice(-2)));
+    
 
-    if (result.length > 0) {
-        console.log(result.join('\n'));
+    if (parking.size > 0) {
+        console.log(Array.from(parking).sort().join('\n'));
     } else {
         console.log('Parking Lot is Empty');
     }

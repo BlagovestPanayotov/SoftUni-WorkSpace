@@ -1,30 +1,33 @@
 function partyTime(input) {
 
-    let guestList = new Map();
+    let guestListRegular = [];
+    let guestListVIP = [];
 
     let guest = input.shift();
     while (guest !== 'PARTY') {
         if (isNaN(Number(guest[0]))) {
-            guestList.set(guest, 'regular');
+            guestListRegular.push(guest);
         } else {
-            guestList.set(guest, 'VIP');
+            guestListVIP.push(guest);
         }
         guest = input.shift();
     }
 
     input.forEach(guest => {
-        if (guestList.has(guest)) {
-            guestList.delete(guest);
+        if (guestListRegular.includes(guest)) {
+            let index = guestListRegular.indexOf(guest);
+            guestListRegular.splice(index, 1);
+        }
+        if (guestListVIP.includes(guest)) {
+            let index = guestListVIP.indexOf(guest);
+            guestListVIP.splice(index, 1);
         }
     });
 
-    let missingPeople = Array.from(guestList.entries())
-        .sort((a, b) => b[1].localeCompare(a[1]));
+    console.log(guestListRegular.length + guestListVIP.length);
+    guestListVIP.forEach(x => console.log(x));
+    guestListRegular.forEach(x => console.log(x));
 
-    console.log(missingPeople.length);
-    missingPeople.forEach(guest => {
-        console.log(guest[0]);
-    })
 
 }
 
