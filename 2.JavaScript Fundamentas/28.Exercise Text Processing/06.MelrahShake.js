@@ -1,57 +1,26 @@
 function melrahShake(input) {
 
-    let str = input[0];
-    let shake = input[1];
+    let [str, shake] = input;
 
-    while (str.length > shake.length * 2 || shake.length > 0) {
-        if (shakerChecker) {
-            while (str.includes(shake)) {
-                str = shaker(shake, str);
-            }
-            console.log('Shaked it.');
-            if (shake.length > 1) {
-                let cutIndex = shake.length / 2;
-                shake = shake.replace(shake[cutIndex], '');
-            } else {
-                console.log('No shake.');
-                console.log(str);
-                return;
-            }
+    let arr = str.split(shake);
 
-        } else {
-            console.log('No shake.');
-            console.log(str);
-            return;
+    while (shake.length > 0) {
+        if (arr.length <= 2) {
+            break;
         }
-    }
+        let end = arr.pop();
+        str = arr.shift() + arr.join(shake) + end;
 
-    function shakerChecker(shake, str) {
-        if (str.includes(shake)) {
-            let workingStr = str;
-            workingStr = workingStr.replace(shake, '');
-            if (workingStr.includes(shake)) {
-                let firstHalf = workingStr.slice(0, workingStr.indexOf(shake));
-                let secondHalf = workingStr.replace(firstHalf + shake, '');
-                workingStr = firstHalf + secondHalf;
-                str = workingStr;
-                return true;
-            }
-        }
-        return false;
-    }
+        console.log('Shaked it.');
 
-    function shaker(shake, str) {
-        if (str.includes(shake)) {
-            str = str.replace(shake, '');
-            if (str.includes(shake)) {
-                let firstHalf = str.slice(0, str.indexOf(shake));
-                let secondHalf = str.replace(firstHalf + shake, '');
-                str = firstHalf + secondHalf;
-                return str;
-            }
-        }
-        return str;
+        shake = shake.split('');
+        shake.splice(Math.floor(shake.length / 2), 1);
+        shake = shake.join('');
+        arr = str.split(shake);
     }
+    console.log('No shake.');
+    console.log(str);
+
 }
 /* When you successfully shake off a match, you remove from the pattern the character which corresponds to the index
  equal to the pattern’s length / 2. Then you continue to shake off the border occurrences of the new pattern until 
@@ -72,8 +41,8 @@ Constraints
 */
 
 
-melrahShake(['aaaaaa', 'a']);
-// melrahShake(['astalavista baby',
-//     'sta']);
-// melrahShake(['##mtm!!mm.mm*mtm.#',
-//     'mtm']);
+// melrahShake(['aaaaaa', 'a']);
+melrahShake(['astalavista baby',
+    'sta']);
+melrahShake(['##mtm!!mm.mm*mtm.#',
+    'mtm']);
