@@ -1,47 +1,44 @@
 function theImitationGame(input) {
-
     let message = input.shift();
 
+    let commands = {
+        Move,
+        Insert,
+        ChangeAll,
+    };
+    
     for (let line of input) {
-        if (line === 'Decode') {
-            return `The decrypted message is: ${message}`;
-        }
-        if (line.includes('Move')) {
-            //    • Move {number of letters}":
-            // ◦ Moves the first n letters to the back of the string
-            // 'Move|3'
-            line = line.replace('Move|', '');
-            let frontCut = message.slice(0, Number(line));
-            let backCut = message.replace(frontCut, '');
 
-            message = backCut + frontCut;
-        }
-        if (line.includes('Insert')) {
-            // • "Insert {index} {value}":
-            // ◦ Inserts the given value before the given index in the string
-            // 'Insert|2|o'
-            line = line.split('|');
-            let index = Number(line[1]);
-            let value = line[2];
-            let frontCut = message.slice(0, index);
-            let backCut = message.slice(index);
+        if(line === 'Decode') break;
 
-            message = frontCut + value + backCut;
-        }
-        if (line.includes('ChangeAll')) {
-            // • "ChangeAll {substring} {replacement}":
-            // ◦ Changes all occurrences of the given substring with the replacement text
-            // 'ChangeAll|z|l',
+        let tokens = line.split('|');
+        message = commands[tokens[0]](message,tokens[1],tokens[2]);
+    }
 
-            line = line.split('|');
+    return `The decrypted message is: ${message}`;
+    
+    function Move(message,index){
 
-            let substring = line[1];
-            let replacement = line[2];
-            while(message.includes(substring)){
-                message = message.replace(substring,replacement)
-            }
+        index = Number(index);
 
-        }
+        let frontCut = message.slice(0, Number(index));
+        let backCut = message.replace(frontCut, '');
+
+        return backCut + frontCut;
+    }
+    function Insert(message,index,value){
+
+        index = Number(index);
+
+        let frontCut = message.slice(0, index);
+        let backCut = message.slice(index);
+
+        return frontCut + value + backCut;
+    }
+    function ChangeAll(message,substring,replacement){
+    
+        return message.split(substring).join(replacement);
+
     }
 
 }
