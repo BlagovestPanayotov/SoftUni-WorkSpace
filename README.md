@@ -1,6 +1,4 @@
 # SoftUni-WorkSpace
 
-Second conflict!!!
-Conflict number three!
-Conflict slved!
+Problem solving of the tasks in JavaScript path in SoftUni
 
