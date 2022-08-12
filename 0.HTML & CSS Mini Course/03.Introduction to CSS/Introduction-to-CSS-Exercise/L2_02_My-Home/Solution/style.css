@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,500;0,700;1,500&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 3%;
+    font-family: "Open Sans", sans-serif;
+}
+
+article {
+    display: inline-block;
+    width: 30%;
+}
+
+header section article {
+    border-left: 3px solid #656565;
+    padding-left: 25px;
+}
+
+header section article:nth-child(2) {
+    margin-left: 23.7rem;
+
+}
+
+header section article h2 {
+    font-weight: 300;
+}
+
+header section article p {
+    color: #656565;
+}
+
+main section article {
+    width: 30%;
+
+}
