@@ -1,8 +1,4 @@
-function listOfNames(names) {
-    let num = 1;
-    names.sort((a, b) => a.localeCompare(b)).forEach(name=>{
-        console.log(`${num}.${name}`);
-        num++;
-    })
+function listOfNames(arr) {
+   arr.sort((a, b) => a.localeCompare(b)).forEach((x, i) => console.log(`${i + 1}.${x}`));
 }
 listOfNames(["John", "Bob", "Christina", "Ema"]);

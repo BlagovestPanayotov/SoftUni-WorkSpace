@@ -1,34 +1,22 @@
 function diagonalAttack(input) {
-
-    let matrix = [];
-
-    input.forEach(x => {
-        matrix.push(x.split(' ').map(Number));
-    });
-
-    let diagonalOne = 0;
-    let diagonalTwo = 0;
-
-    for (let i = 0; i < matrix.length; i++) {
-        diagonalOne += matrix[i][i];
-        diagonalTwo += matrix[i][matrix.length - 1 - i];
+    let mainDiagonal = 0;
+    let secondaryDiagonal = 0;
+    const field = input.slice().map(x => x.split(' ').map(Number));
+    for (let i = 0; i < field.length; i++) {
+        mainDiagonal += field[i][i];
+        secondaryDiagonal += field[field.length - 1 - i][i];
     }
-
-    if (diagonalOne === diagonalTwo) {
-        for (let i = 0; i < matrix.length; i++) {
-            for (let j = 0; j < matrix.length; j++) {
-                if (j !== i && j !== matrix.length - 1 - i) {
-                    matrix[i][j] = diagonalOne;
+    if (mainDiagonal == secondaryDiagonal) {
+        for (let i = 0; i < field.length; i++) {
+            for (let j = 0; j < field.length; j++) {
+                if (i !== j &&
+                    i !== field.length - 1 - j) {
+                    field[i][j] = mainDiagonal;
                 }
             }
         }
-
     }
-
-    matrix.forEach(x => {
-        console.log(x.join(' '));
-    })
-
+    field.forEach(x => console.log(x.join(' ')));
 }
 diagonalAttack(
     ['5 3 12 3 1',
@@ -39,4 +27,4 @@ diagonalAttack(
 diagonalAttack(
     ['1 1 1',
         '1 1 1',
-        '1 1 0']);
+        '1 1 0'])

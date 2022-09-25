@@ -1,38 +1,21 @@
-function cookingByNumbers(num, op1, op2, op3, op4, op5) {
+function cookingByNumbers(num, ...ops) {
 
-    let number = Number(num);
-    let ops = [op1, op2, op3, op4, op5];
+    let currentNum = Number(num);
+    const operations = { chop, dice, spice, bake, fillet, }
 
-    let operations = {
-        chop,
-        dice,
-        spice,
-        bake,
-        fillet,
+    for (const op of ops) {
+        currentNum = operations[op](currentNum);
+        console.log(currentNum);
     }
 
-    for(let op of ops){
-        number = operations[op](number);
-        console.log(number);
-    }
-
-
-    function chop(number) {
-        return number / 2;
-    }
-    function dice(number) {
-        return Math.sqrt(number);
-    }
-    function spice(number) {
-        return ++number;
-    }
-    function bake(number) {
-        return number * 3;
-    }
-    function fillet(number) {
-        return number * 0.8;
-    }
+    function chop(num) { return num / 2 };
+    function dice(num) { return Math.sqrt(num) };
+    function spice(num) { return num += 1 };
+    function bake(num) { return num *= 3 };
+    function fillet(num) { return num *= 0.8 };
 
 }
-cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop');
-cookingByNumbers('9', 'dice', 'spice', 'chop', 'bake', 'fillet');
+
+cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop')
+console.log('--------------------');
+cookingByNumbers('9', 'dice', 'spice', 'chop', 'bake', 'fillet')

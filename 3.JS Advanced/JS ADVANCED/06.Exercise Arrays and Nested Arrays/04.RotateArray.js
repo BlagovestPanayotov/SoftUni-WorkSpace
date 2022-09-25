@@ -1,20 +1,10 @@
-function rotateArray(arr,rotations) {
-
-    let myArr = arr.slice();
-
-    for(let i=0;i<rotations;i++){
-        myArr.unshift(myArr.pop())
-    }
-
-    console.log(myArr.join(' '));
+function rotateArray(arr, repetitions) {
+    const neededRepetitions = repetitions % arr.length;
+    for (let i = 0; i < neededRepetitions; i++) arr.unshift(arr.pop());
+    return arr.join(' ');
 }
-rotateArray(['1', 
-'2', 
-'3', 
-'4'], 
-2);
-rotateArray(['Banana', 
-'Orange', 
-'Coconut', 
-'Apple'], 
-15);
+console.log(rotateArray(['Banana',
+    'Orange',
+    'Coconut',
+    'Apple'],
+    15));

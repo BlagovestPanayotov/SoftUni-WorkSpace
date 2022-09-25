@@ -1,29 +1,37 @@
 function magicMatrices(input) {
-
-    let sum = input[0].reduce((a, b) => a + b);
+    let isMagical = true;
+    const sum = input[0].slice().reduce((a, b) => a + b);
     for (let i = 0; i < input.length; i++) {
-        if (sum !== input[i].reduce((a, b) => a + b)) {
-            return false;
+        let currentSumRow = input[i].slice().reduce((a, b) => a + b);
+        if (sum !== currentSumRow) {
+            isMagical = false;
+            break;
         }
-        let sumCol = 0;
-        for (let k = 0; k < input.length; k++) {
-            sumCol+=input[k][i];
+        let currentSumCol = 0;
+        for (let j = 0; j < input.length; j++) {
+            currentSumCol+=input[j][i];
         }
-        if(sumCol!==sum){
-            return false;
+        if (sum !== currentSumCol) {
+            isMagical = false;
+            break;
         }
     }
-    return true;
+    return isMagical;
 }
-magicMatrices(
+console.log(magicMatrices(
     [[4, 5, 6],
     [6, 5, 4],
-    [5, 5, 5]]);
-magicMatrices(
+    [5, 5, 5],
+    [4, 5, 6],
+    [6, 5, 4],
+    [5, 5, 5]]));
+console.log(magicMatrices(
     [[11, 32, 45],
     [21, 0, 1],
-    [21, 1, 1]]);
-magicMatrices(
+    [21, 1, 1],[11, 32, 45],
+    [21, 0, 1],
+    [21, 1, 1]]));
+console.log(magicMatrices(
     [[1, 0, 0],
     [0, 0, 1],
-    [0, 1, 0]]);
+    [0, 1, 0]]));

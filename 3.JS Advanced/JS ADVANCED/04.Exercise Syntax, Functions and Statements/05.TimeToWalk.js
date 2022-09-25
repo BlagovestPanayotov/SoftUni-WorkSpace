@@ -1,15 +1,20 @@
-function timeToWalk(steps, stepLength, speedInKm) {
+function timeToWalk(countSteps, stepLength, speed) {
 
-    let distance = steps * stepLength;
+    const distance = (countSteps * stepLength);
+    const breakTime = Math.floor(distance / 500);
 
-    let speed = speedInKm * 1000 / 3600;
-    let time = (distance/speed)+Math.floor(distance/500)*60;
-    let hours = Math.floor(time / 3600);
-    let minutes = Math.floor((time - (hours * 3600)) / 60);
-    let seconds = time % 60;
+    const totalTime = ((distance) / 1000) / speed + breakTime / 60;
+    let timeHours = Math.floor(totalTime);
+    let timeMinutes = Math.floor(totalTime * 60);
+    let timeSeconds = Math.ceil(totalTime * 3600 - timeMinutes * 60);
 
-    console.log(`${hours.toFixed(0).padStart(2, '0')}:${minutes.toFixed(0).padStart(2, '0')}:${seconds.toFixed(0).padStart(2, '0')}`);
-    //`hours:minutes:seconds`.
+    let printingTimeHours = timeHours < 10 ? `0${timeHours}` : `${timeHours}`;
+    let printingTimeMinutes = timeMinutes < 10 ? `0${timeMinutes}` : `${timeMinutes}`;
+    let printingTimeSeconds = timeSeconds < 10 ? `0${timeSeconds}` : `${timeSeconds}`;
+
+    console.log(`${printingTimeHours}:${printingTimeMinutes}:${printingTimeSeconds}`);
+
 }
+
 timeToWalk(4000, 0.60, 5);
-timeToWalk(2564, 0.70, 5.5);
+timeToWalk(2564, 0.70, 5.5)

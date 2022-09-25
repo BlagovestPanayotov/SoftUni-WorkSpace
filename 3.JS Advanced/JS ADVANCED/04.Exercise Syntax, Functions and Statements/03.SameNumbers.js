@@ -1,20 +1,17 @@
-function sameNumbers(input) {
-
-    let numAsString = input.toString();
-    let sum = 0
+function sameNumber(input) {
+    const str = input.toString();
+    let sum = Number(str[0]);
     let isSame = true;
-    let compareDigit = Number(numAsString[0]);
-
-    for (let num of numAsString) {
-        num = Number(num);
-        if (compareDigit !== num) {
+    for (let i = 1; i < str.length; i++) {
+        if (str[i - 1] !== str[i]) {
             isSame = false;
         }
-        sum += num;
+        sum += Number(str[i]);
     }
+
     console.log(isSame);
     console.log(sum);
 
 }
-sameNumbers(2222222);
-sameNumbers(1234);
+sameNumber(2222222);
+sameNumber(1234);

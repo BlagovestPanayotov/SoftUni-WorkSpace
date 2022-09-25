@@ -1,21 +1,3 @@
-function printArrayWithGivenDelimiter(arr,delimiter) {
-
-    console.log(arr.join(delimiter));
-
+function printArrayWithGivenDelimiter(arr,str){
+    return arr.join(str)
 }
-
-printArrayWithGivenDelimiter(
-    ['One',
-    'Two',
-    'Three',
-    'Four',
-    'Five'],
-    '-');
-printArrayWithGivenDelimiter(
-    ['How about no?',
-    'I',
-    'will',
-    'not',
-    'do',
-    'it!'],
-    '_');
