@@ -1,11 +1,14 @@
-function add(num) {
-    let sum = num;
-    function summing(x) {
-        sum+=x;
+function add(n) {
+    
+    const summing = function (x) {
+        n += x;
         return summing;
     }
-    return summing().toString();
+    summing.toString = function () {
+        return n;
+    }
+    return summing;
 
 }
 
-console.log(add(1)(6)(-3));
+console.log(add(1).toString());
