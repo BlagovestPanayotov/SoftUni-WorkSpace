@@ -1,14 +1,14 @@
 function create(words) {
    const input = JSON.parse(JSON.stringify(words));
-   const parrentDiv = document.getElementById('content');
+   const parentDiv = document.getElementById('content');
 
    for (let word of input) {
 
       const newDiv = document.createElement('div');
       const newParagraph = document.createElement('p');
-      const newText = document.createTextNode(word);
+      // const newText = document.createTextNode(word);
 
-      newParagraph.appendChild(newText);
+      newParagraph.textContent = word;
       newParagraph.style.display = 'none';
       newDiv.appendChild(newParagraph);
 
@@ -18,6 +18,6 @@ function create(words) {
          ev.target.querySelector('p').style.display = 'block';
       }
 
-      parrentDiv.appendChild(newDiv)
+      parentDiv.appendChild(newDiv)
    }
 }
