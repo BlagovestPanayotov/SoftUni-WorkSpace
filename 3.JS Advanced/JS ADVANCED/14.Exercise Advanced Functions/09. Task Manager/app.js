@@ -1,5 +1,6 @@
 function solve() {
 
+    const [_, openSection, inProgressSection, completeSection] = Array.from(document.querySelectorAll('section')).map(x => x.querySelectorAll('div')[1]);
     const buttonAdd = document.getElementById('add');
     buttonAdd.addEventListener('click', add);
 
@@ -8,97 +9,74 @@ function solve() {
         const addTaskForm = document.querySelector('form');
         const addTaskInputs = Array.from(addTaskForm.querySelectorAll('input,textarea'));
 
-        const taskName = addTaskInputs[0].value;
-        const taskDescription = addTaskInputs[1].value;
-        const taskDeadLine = addTaskInputs[2].value;
-
-        if (taskName &&
-            taskDescription &&
-            taskDeadLine) {
-
-            const openSection = document.querySelectorAll('section')[1].querySelectorAll('div')[1];
-
-            openSection.appendChild(createArticleInOpenSection(taskName, taskDescription, taskDeadLine));
-
-            // addTaskInputs[0].value = '';
-            // addTaskInputs[1].value = '';
-            // addTaskInputs[2].value = '';
+        const input = {
+            taskName: addTaskInputs[0],
+            taskDescription: addTaskInputs[1],
+            taskDeadLine: addTaskInputs[2],
         }
 
+        if (input.taskName.value &&
+            input.taskDescription.value &&
+            input.taskDeadLine.value) {
+
+            openSection.appendChild(createArticleInOpenSection(input.taskName.value, input.taskDescription.value, input.taskDeadLine.value));
+
+            Object.values(input).forEach(x => x.value = '');
+        }
     }
-
-
 
     function createArticleInOpenSection(name, description, deadLine) {
         const article = document.createElement('article');
 
-        const header = document.createElement('h3');
-        header.textContent = name;
-        article.appendChild(header);
+        article.appendChild(createElement('h3', name));
 
-        const parDesc = document.createElement('p');
-        parDesc.textContent = `Description: ${description}`;
-        article.appendChild(parDesc);
+        article.appendChild(createElement('p', `Description: ${description}`));
 
-        const parDeadLine = document.createElement('p');
-        parDeadLine.textContent = `Due Date: ${deadLine}`;
-        article.appendChild(parDeadLine);
+        article.appendChild(createElement('p', `Due Date: ${deadLine}`));
 
-        const buttonGreen = document.createElement('button');
-        buttonGreen.textContent = 'Start'
-        buttonGreen.className = 'green';
-        
-        const buttonRed = document.createElement('button');
-        buttonRed.textContent = 'Delete'
-        buttonRed.className = 'red';
-        
-        const buttonsContainer = document.createElement('div');
-        buttonsContainer.className = 'flex';
-        buttonsContainer.appendChild(buttonGreen);
-        buttonsContainer.appendChild(buttonRed);
+        const buttonsContainer = createElement('div', '', 'flex');
+        buttonsContainer.appendChild(createElement('button', 'Start', 'green', ['click', moveArticleInProgressSection]));
+        buttonsContainer.appendChild(createElement('button', 'Delete', 'red', ['click', deleteSection]));
         article.appendChild(buttonsContainer);
-        
-        
-        buttonGreen.addEventListener('click', moveArticleInProgressSection);
-        buttonRed.addEventListener('click', deleteSection);
+
         return article;
+    }
+
+    function createElement(type, text, className, eventListener) {
+        const element = document.createElement(type);
+        if (text) {
+            element.textContent = text;
+        }
+        if (className) {
+            element.className = className;
+        }
+        if (eventListener) {
+            element.addEventListener(eventListener[0], eventListener[1]);
+        }
+        return element
     }
 
     function deleteSection(ev) {
         ev.target.parentElement.parentElement.remove();
     }
 
-    function moveArticleInProgressSection(ev){
+    function moveArticleInProgressSection(ev) {
 
         const section = ev.target.parentElement.parentElement;
-        const inProgressSection = document.querySelectorAll('section')[2].querySelectorAll('div')[1];
+        const buttonContainer = ev.target.parentElement;
 
-        const buttons = section.querySelectorAll('button');
-        const deleteButton = buttons[0];
-        const finishButton = buttons[1];
+        Array.from(section.querySelectorAll('button')).forEach(x => x.remove());
 
-        deleteButton.removeEventListener('click', moveArticleInProgressSection);
-        deleteButton.textContent = 'Delete';
-        deleteButton.className = 'red';
-        deleteButton.addEventListener('click', deleteSection);
-
-        finishButton.removeEventListener('click', deleteSection);
-        finishButton.textContent = 'Finish';
-        finishButton.className = 'orange';
-        finishButton.addEventListener('click',moveToCompleteSection);
+        buttonContainer.appendChild(createElement('button', 'Delete', 'red', ['click', deleteSection]));
+        buttonContainer.appendChild(createElement('button', 'Finish', 'orange', ['click', moveToCompleteSection]));
 
         inProgressSection.appendChild(section);
     }
 
-    function moveToCompleteSection(ev){
-
+    function moveToCompleteSection(ev) {
         const section = ev.target.parentElement.parentElement;
-        const completeSection = document.querySelectorAll('section')[3].querySelectorAll('div')[1];
-        
         ev.target.parentElement.remove();
-
         completeSection.appendChild(section);
-        
-    }
 
+    }
 }
