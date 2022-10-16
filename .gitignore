@@ -35,3 +35,5 @@ test.js
 *.gif
 *.odt
 *.odt#
+*node_modules/
+*.json
