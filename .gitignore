@@ -37,3 +37,4 @@ test.js
 *.odt#
 *node_modules/
 *.json
+*server/
