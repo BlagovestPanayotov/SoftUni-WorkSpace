@@ -26,3 +26,10 @@ export function showNavigation() {
     }
 }
 
+export function loading() {
+    const loadingElement = document.createElement('h2');
+
+    loadingElement.textContent = 'Loading...';
+
+    return loadingElement;
+}

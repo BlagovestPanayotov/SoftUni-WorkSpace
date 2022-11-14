@@ -4,9 +4,9 @@
 // []register user
 // [x]login user
 // [x]logout user
-// []homepage
-// []add movie
-// []movie details
+// [x]homepage
+// [x]add movie
+// [x]movie details
 // []edit movie
 // []like movie
 // []delete movie
@@ -19,13 +19,12 @@ import { showRegister } from "./register.js";
 import { showNavigation } from "./util.js";
 
 const createSection = document.getElementById('add-movie');
-const detailsSection = document.getElementById('movie-example');
 const editSection = document.getElementById('edit-movie');
 
 
-showHomePage();
+await showHomePage();
 showNavigation();
-showRegister();//must be removed!!!
+// showRegister();//must be removed!!!
 
 const navigation = document.querySelector('nav');
 const createBtn = document.querySelector('#add-movie-button a');
