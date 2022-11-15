@@ -44,7 +44,7 @@ async function onSubmit(event) {
                 'Content-Type': 'application/json',
                 'X-Authorization': userData.token
             },
-            body:JSON.stringify({title,description,img})
+            body: JSON.stringify({ title, description, img })
         });
 
         const result = await response.json();
@@ -57,6 +57,8 @@ async function onSubmit(event) {
 
     } catch (err) {
         alert(err.message);
+        button.textContent = 'Submit';
+        button.disabled = false;
         throw err;
     }
 

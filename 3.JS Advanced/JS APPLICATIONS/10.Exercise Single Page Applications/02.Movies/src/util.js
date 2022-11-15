@@ -26,10 +26,10 @@ export function showNavigation() {
     }
 }
 
-export function loading() {
+export function loading(message) {
     const loadingElement = document.createElement('h2');
 
-    loadingElement.textContent = 'Loading...';
+    loadingElement.textContent = message ? message : 'Loading...';
 
     return loadingElement;
 }

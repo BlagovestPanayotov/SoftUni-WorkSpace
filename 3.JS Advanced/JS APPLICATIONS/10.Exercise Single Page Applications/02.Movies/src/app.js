@@ -9,7 +9,7 @@
 // [x]movie details
 // []edit movie
 // []like movie
-// []delete movie
+// [x]delete movie
 
 import { showCreateMoviePage } from "./createMovie.js";
 import { showHomePage } from "./homePage.js";
@@ -22,9 +22,8 @@ const createSection = document.getElementById('add-movie');
 const editSection = document.getElementById('edit-movie');
 
 
-await showHomePage();
 showNavigation();
-// showRegister();//must be removed!!!
+await showHomePage();
 
 const navigation = document.querySelector('nav');
 const createBtn = document.querySelector('#add-movie-button a');
@@ -39,7 +38,7 @@ const routs = {
 }
 
 navigation.addEventListener('click', (event) => pageViewer(event));
-createBtn.addEventListener('click', (event) => pageViewer(event))
+createBtn.addEventListener('click', (event) => pageViewer(event));
 
 function pageViewer(event) {
     event.preventDefault();
