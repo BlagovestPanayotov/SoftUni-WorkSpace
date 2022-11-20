@@ -38,3 +38,5 @@ test.js
 *node_modules/
 *.json
 *server/
+*07.Remote Data and Authentication/
+*11.Architecture and Testing/
