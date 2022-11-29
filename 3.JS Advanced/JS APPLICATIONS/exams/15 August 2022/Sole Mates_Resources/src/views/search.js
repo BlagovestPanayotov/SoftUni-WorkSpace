@@ -1,9 +1,9 @@
 import { searchForElements } from "../api/data.js";
-import { html } from "../lib.js";
-import { submitHandler } from "../util.js";
+import { html, nothing } from "../lib.js";
+import { getUserData, submitHandler } from "../util.js";
 
 
-const searchTemplate = (onSubmit) => html`
+const searchTemplate = (onSubmit, placeholder = nothing) => html`
  <section id="search">
           <h2>Search by Brand</h2>
 
@@ -20,34 +20,47 @@ const searchTemplate = (onSubmit) => html`
 
           <h3>Results:</h3>
 
-          ${false
-        ? html`<div id="search-container">
-            <ul class="card-wrapper">
-              <!-- Display a li with information about every post (if any)-->
-              <li class="card">
-                <img src="./images/travis.jpg" alt="travis" />
-                <p>
-                  <strong>Brand: </strong><span class="brand">Air Jordan</span>
-                </p>
-                <p>
-                  <strong>Model: </strong
-                  ><span class="model">1 Retro High TRAVIS SCOTT</span>
-                </p>
-                <p><strong>Value:</strong><span class="value">2000</span>$</p>
-                <a class="details-btn" href="">Details</a>
-              </li>
-            </ul>`
-        : html`<h2>There are no results found.</h2>`}
+          ${placeholder}
           
           </div>
         </section>`
 
+const elTemplate = (el, user) => html`
+            <div id="search-container">
+            <ul class="card-wrapper">
+              <!-- Display a li with information about every post (if any)-->
+              <li class="card">
+                <img src=${el.imageUrl} alt="travis" />
+                <p>
+                  <strong>Brand: </strong><span class="brand">${el.brand}</span>
+                </p>
+                <p>
+                  <strong>Model: </strong
+                  ><span class="model">${el.model}</span>
+                </p>
+                <p><strong>Value:</strong><span class="value">${el.value}</span>$</p>
+                ${user
+        ? html`<a class="details-btn" href=${'/details/' + el._id}>Details</a>`
+        : nothing}
+              </li>
+            </ul>
+`
 
 export async function showSearch(ctx) {
-    ctx.render(searchTemplate(submitHandler(onSubmit)));
+    let placeholder;
+    ctx.render(searchTemplate(submitHandler(onSubmit), placeholder));
     // const data = await searchForElements(query);
-    function onSubmit(){
-        console.log('dada');
+    async function onSubmit({ search }) {
+        const data = await searchForElements(search.trim());
+
+        const user = getUserData();
+        if (data.length === 0) {
+            placeholder = html`<h2>There are no results found.</h2>`;
+        } else {
+            placeholder = data.map(e => elTemplate(e, user));
+        }
+        ctx.render(searchTemplate(submitHandler(onSubmit), placeholder));
+
     }
     // console.log(data);
 }
