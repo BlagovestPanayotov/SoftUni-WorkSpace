@@ -18,35 +18,48 @@ const detailsTemplate = (el, user, isCreator, onDelete, onDonation, getCount, do
                         <p class="post-address">Address: ${el.address}</p>
                         <p class="post-number">Phone number: ${el.phone}</p>
                         <p class="donate-Item">Donate Materials: ${getCount}</p>
-                        ${user
-                            ? isCreator ? html`<div class="btns">
-                                            <a href=${'/edit/' + el._id} class="edit-btn btn">Edit</a>
-                                            <a @click=${onDelete} href="javascript:void(0)" class="delete-btn btn">Delete</a>
-                                            </div>`
-
-                                         : donated == 0 ? html`<div class="btns">
-                                                            <a @click=${onDonation} href="javascript:void(0)" class="donate-btn btn">Donate</a></div>`
-                                                        : nothing
-                            : nothing}
+                        ${buttonControl(el, user, isCreator, onDelete, onDonation, getCount, donated)}
                     </div>
                 </div>
             </div>
         </section>`
 
+
+function buttonControl(el, user, isCreator, onDelete, onDonation, getCount, donated) {
+    if (!user) {
+        return nothing;
+    }
+
+    if (isCreator) {
+        return html`<div class="btns">
+        <a href=${'/edit/' + el._id} class="edit-btn btn">Edit</a>
+        <a @click=${onDelete} href="javascript:void(0)" class="delete-btn btn">Delete</a>
+        </div>`
+    }
+
+    if (donated == 0) {
+        return html`<div class="btns">
+        <a @click=${onDonation} href="javascript:void(0)" class="donate-btn btn">Donate</a></div>`
+    }
+
+    return nothing;
+
+}
+
 export async function showDetails(ctx) {
     const id = ctx.params.id;
-    const [el, getCount] = await Promise.all([
+    const promises = [
         getElementById(id),
         getDonationsCount(id),
-    ]);
+    ];
     const user = getUserData();
 
     let isCreator;
-    let donated = 0;
     if (user) {
         isCreator = el._ownerId === user._id;
-        donated = await hasDonated(id, user._id);
+        promises.push(hasDonated(id, user._id));
     }
+    const [el, getCount, donated] = await Promise.all(promises);
     ctx.render(detailsTemplate(el, user, isCreator, onDelete, onDonation, getCount, donated));
 
     async function onDelete() {
