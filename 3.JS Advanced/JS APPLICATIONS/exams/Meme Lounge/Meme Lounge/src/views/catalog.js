@@ -30,14 +30,3 @@ export async function showCatalog(ctx) {
     ctx.render(catalogTemplate(elements));
 }
 
-// _createdOn: 1616162253496
-//
-// _id: "0"
-//
-// _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8"
-//
-// description: "Programming is often touted as a smart and lucrative career path. It's a job that (sometimes) offers flexibility and great benefits. But it's far from sunshine and Nyan Cat rainbows. The hours are long. The mistakes are frustrating. And your eyesight is almost guaranteed to suffer. These memes cover most of the frustration (and funny moments) of programming. At least we can laugh through the pain. "
-//
-// imageUrl: "/images/2.png"
-//
-// title: "Debugging"
