@@ -8,7 +8,8 @@ const endpoints = {
     'editItem': '/data/memes/',
     'createItem': '/data/memes',
     'getMyItems': (userId) => `/data/memes?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`,
-  
+
+}
 
 export function getAll() {
     return get(endpoints.getAll);
