@@ -2,13 +2,13 @@ import { logout } from "./api/auth.js";
 import { html, render } from "./lib.js"
 import { getUserData } from "./util.js";
 
-const main = document.querySelector('#main-content');
+const main = document.querySelector('main');
 const header = document.querySelector('header');
 
 const navTemplate = (user) => html`
-            <h1><a href="/">Orphelp</a></h1>
+            <h1><a href="/dashboard">Orphelp</a></h1>
             <nav>
-                <a href="/">Dashboard</a>
+                <a href="/dashboard">Dashboard</a>
                 ${user
         ? html`<div id="user">
                     <a href="/myPosts">My Posts</a>

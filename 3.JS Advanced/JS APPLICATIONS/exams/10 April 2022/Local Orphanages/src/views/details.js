@@ -39,7 +39,7 @@ function buttonControl(el, user, isCreator, onDelete, onDonation, getCount, dona
 
     if (donated == 0) {
         return html`<div class="btns">
-        <a @click=${onDonation} href="javascript:void(0)" class="donate-btn btn">Donate</a></div>`
+        <a @click=${onDonation} href="" class="donate-btn btn">Donate</a></div>`
     }
 
     return nothing;
@@ -53,13 +53,14 @@ export async function showDetails(ctx) {
         getDonationsCount(id),
     ];
     const user = getUserData();
+    const [el, getCount] = await Promise.all(promises);
 
+    let donated = 1;
     let isCreator;
     if (user) {
         isCreator = el._ownerId === user._id;
-        promises.push(hasDonated(id, user._id));
+        donated = await hasDonated(id, user._id);
     }
-    const [el, getCount, donated] = await Promise.all(promises);
     ctx.render(detailsTemplate(el, user, isCreator, onDelete, onDonation, getCount, donated));
 
     async function onDelete() {
@@ -71,7 +72,7 @@ export async function showDetails(ctx) {
 
     async function onDonation() {
         await makeDonation(id);
-        ctx.page.redirect('/details/' + id);
+        // ctx.page.redirect('/details/' + id);
     }
 }
 

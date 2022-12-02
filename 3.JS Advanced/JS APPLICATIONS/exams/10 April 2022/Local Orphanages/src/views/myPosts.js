@@ -1,13 +1,14 @@
-import { getAll } from "../api/data.js";
+import { getMyPosts } from "../api/data.js";
 import { html, repeat } from "../lib.js";
+import { getUserData } from "../util.js";
 
 
-const dashboardTemplate = (elements) => html`
-        <section id="dashboard-page">
-            <h1 class="title">All Posts</h1>
+const myPostsTemplate = (elements) => html`
+        <section id="my-posts-page">
+            <h1 class="title">My Posts</h1>
             ${elements.length == 0
-        ? html`<h1 class="title no-posts-title">No posts yet!</h1>`
-        : html`<div class="all-posts">
+        ? html`<h1 class="title no-posts-title">You have no posts yet!</h1>`
+        : html`<div class="my-posts">
             ${repeat(elements, r => r._id, postTemplate)}
             </div>`}
         </section>
@@ -22,7 +23,8 @@ const postTemplate = (el) => html`
                 </div>
             </div>`
 
-export async function showDashboard(ctx) {
-    const elements = await getAll();
-    ctx.render(dashboardTemplate(elements));
+export async function showMyPosts(ctx) {
+    const user = getUserData();
+    const elements = await getMyPosts(user._id);
+    ctx.render(myPostsTemplate(elements));
 }

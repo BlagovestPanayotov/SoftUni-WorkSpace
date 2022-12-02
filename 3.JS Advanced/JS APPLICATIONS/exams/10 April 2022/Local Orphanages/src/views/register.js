@@ -36,10 +36,15 @@ export function showRegister(ctx) {
         email = email.trim();
         password = password.trim();
         repeatPassword = repeatPassword.trim();
-        
+
         if (email == '' || password == '' || repeatPassword == '') {
             return alert('All fields are required!');
         }
+
+        if (password !== repeatPassword) {
+            return alert('Passwords don\'t match!');
+        }
+
         await register(email, password);
         ctx.page.redirect('/');
     }

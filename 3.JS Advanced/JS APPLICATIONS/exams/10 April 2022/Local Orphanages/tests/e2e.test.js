@@ -577,7 +577,7 @@ describe('E2E tests', function () {
     });
   });
 
-  describe('BONUS : Donate functionality  [ 15 Points ]', () => {
+  describe.only('BONUS : Donate functionality  [ 15 Points ]', () => {
     it('Donate button is NOT visible for guest users [ 2.5 Points ]', async () => {
       await page.goto(host);
       await page.waitForTimeout(interval);

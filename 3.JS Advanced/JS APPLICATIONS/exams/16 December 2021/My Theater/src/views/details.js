@@ -27,7 +27,7 @@ const detailsTemplate = (el, isCreator, user, onDelete, likesCount,canLike, onLi
                                             <a @click=${onDelete} class="btn-delete" href="javascript:void(0)">Delete</a>
                                             <a class="btn-edit" href=${'/edit/' + el._id}>Edit</a>`
                                     : canLike 
-                                            ?html`<a @click=${onLike} class="btn-like" href="javascript:void(0)">Like</a>`
+                                            ?html`<a @click=${onLike} class="btn-like" href="#">Like</a>`
                                             :nothing}
                                     </div>`
                         : nothing}
