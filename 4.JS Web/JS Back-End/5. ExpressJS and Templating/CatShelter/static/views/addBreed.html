@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%%headers%%>
+    <title>Cat Shelter</title>
+</head>
+
+<body>
+    <header>
+        {{%%nav%%}}
+        <h1>Cat Shelter</h1>
+    </header>
+    <main>
+        <form action="/add-breed" method="POST" class="cat-form">
+            <h2>Add Cat Breed</h2>
+            <label for="breed-name">Breed Name</label>
+            <input name="breed" type="text" id="breed-name">
+            <button type="submit">Add Breed</button>
+        </form>
+    </main>
+</body>
+
+</html>
