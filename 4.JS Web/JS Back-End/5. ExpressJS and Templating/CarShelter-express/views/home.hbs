@@ -1,0 +1,11 @@
+<section class="cats">
+    <ul>
+        {{#if cats}}
+            {{#each cats}}
+                {{>catCard}}
+            {{/each}}
+        {{else}}
+                {{>missingContent}}
+        {{/if}}
+    </ul>
+</section>

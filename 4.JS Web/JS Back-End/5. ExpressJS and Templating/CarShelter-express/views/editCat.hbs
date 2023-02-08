@@ -1,0 +1,16 @@
+<form action="/edit/{{id}}" method="POST" class="cat-form">
+    <h2>Edit Cat</h2>
+    <label for="name">Name</label>
+    <input name="name" type="text" id="name" value={{name}}>
+    <label for="description">Description</label>
+    <textarea name="description" id="description">{{description}}</textarea>
+    <label for="image">Image</label>
+    <input type="file" id="image" name="upload">
+    <label for="group">Breed</label>
+    <select id="group" name="breed">
+        {{#each breeds}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+    </select>
+    <button>Edit Cat</button>
+</form>
