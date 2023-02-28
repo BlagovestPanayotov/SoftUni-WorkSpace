@@ -1,5 +1,5 @@
 {
-  "name": "cubicle-workshop-part1",
+  "name": "04.-cubicle-workshop-part-2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "express-handlebars": "^6.0.7"
+    "express-handlebars": "^6.0.7",
+    "mongoose": "^6.9.1"
   }
 }
