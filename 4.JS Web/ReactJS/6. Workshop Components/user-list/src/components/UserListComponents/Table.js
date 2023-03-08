@@ -7,7 +7,7 @@ import NoUsers from './NoUsers';
 import User from './User';
 import UserDetails from './UserDetails';
 
-function Table({ users, error, createUser, deleteUser }) {
+function Table({ users, error, createUser, deleteUser, editUser }) {
 
     const [selectedUser, setSelectedUser] = useState(null);
     const [modifyForm, setModifyForm] = useState(false);
@@ -24,12 +24,17 @@ function Table({ users, error, createUser, deleteUser }) {
         setDeleteConformation(false);
     };
 
-    function onClickCreateUser() {
-        setModifyForm(true);
+    function onClickModifyUser(id) {
+        setModifyForm(id);
     }
 
     function onClickDeleteUser(id) {
         setDeleteConformation(id);
+    }
+
+    async function onEditClick(id) {
+        const data = await getById(id);
+        setModifyForm(data.user);
     }
 
 
@@ -38,9 +43,9 @@ function Table({ users, error, createUser, deleteUser }) {
     return (
         <>
             {selectedUser && <UserDetails {...selectedUser} onClose={onClose} />}
-            {modifyForm && <ModifyUser onClose={onClose} createUser={createUser} />}
-
+            {modifyForm && <ModifyUser onClose={onClose} createUser={createUser} editUser={editUser} user={modifyForm} />}
             {deleteConformation && <DeleteBox onClose={onClose} deleteUser={() => deleteUser(deleteConformation, onClose)} />}
+
             <div className="table-wrapper">
                 <table className="table">
                     <thead>
@@ -102,14 +107,15 @@ function Table({ users, error, createUser, deleteUser }) {
                             users.map(u => <User
                                 {...u}
                                 key={u._id}
-                                onClickCreateUser={onClickCreateUser}
+                                onClickModifyUser={() => onClickModifyUser(u._id)}
                                 infoOnClick={infoOnClick}
                                 onClickDeleteUser={() => onClickDeleteUser(u._id)}
+                                onEditClick={() => onEditClick(u._id)}
                             />) : null}
                     </tbody>
                 </table>
             </div>
-            <button className="btn-add btn" onClick={onClickCreateUser}>Add new user</button>
+            <button className="btn-add btn" onClick={onClickModifyUser}>Add new user</button>
         </>
     );
 

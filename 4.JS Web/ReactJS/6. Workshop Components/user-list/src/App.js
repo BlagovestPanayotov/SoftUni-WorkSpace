@@ -3,7 +3,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Loading from './components/Loading';
 import UsersList from './components/UsersList';
-import { create, deleteById, getAll } from './services/userService';
+import { create, deleteById, editById, getAll } from './services/userService';
 
 
 function App() {
@@ -51,6 +51,23 @@ function App() {
         close();
     }
 
+    async function editUser(ev, id, close) {
+        ev.preventDefault();
+
+        const { city, country, street, streetNumber, ...data } = Object.fromEntries(new FormData(ev.currentTarget));
+        data.address = {
+            city,
+            country,
+            street,
+            streetNumber
+        };
+        const newUser = await editById(id, data);
+
+        setUsers(users.map(u => u._id === id ? newUser.user : u));
+
+        close();
+    }
+
     return (
         <>
             <Header />
@@ -62,7 +79,8 @@ function App() {
                         users={users}
                         error={error}
                         createUser={createUser}
-                        deleteUser={deleteUser} />}
+                        deleteUser={deleteUser}
+                        editUser={editUser} />}
 
 
             </main>

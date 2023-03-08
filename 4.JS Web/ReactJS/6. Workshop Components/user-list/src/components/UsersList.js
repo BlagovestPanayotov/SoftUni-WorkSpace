@@ -2,7 +2,7 @@ import Pagination from './UserListComponents/Pagincation';
 import SearchUser from './UserListComponents/Search';
 import Table from './UserListComponents/Table';
 
-function UsersList({ users, error, createUser, deleteUser }) {
+function UsersList({ users, error, createUser, deleteUser, editUser }) {
 
 
     return (
@@ -36,7 +36,12 @@ function UsersList({ users, error, createUser, deleteUser }) {
 
             {/* <!-- </div> --> */}
 
-            <Table users={users} error={error} createUser={createUser} deleteUser={deleteUser} />
+            <Table
+                users={users}
+                error={error}
+                createUser={createUser}
+                deleteUser={deleteUser}
+                editUser={editUser} />
 
             {/* <!-- New user button  --> */}
 
