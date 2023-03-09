@@ -11,6 +11,19 @@ function App() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [values, setValues] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        imageUrl: '',
+        phoneNumber: '',
+        address: {
+            country: '',
+            city: '',
+            street: '',
+            streetNumber: ''
+        },
+    });
 
 
     useEffect(() => {
@@ -32,14 +45,7 @@ function App() {
     async function createUser(ev, close) {
         ev.preventDefault();
 
-        const { city, country, street, streetNumber, ...data } = Object.fromEntries(new FormData(ev.currentTarget));
-        data.address = {
-            city,
-            country,
-            street,
-            streetNumber
-        };
-        const newUser = await create(data);
+        const newUser = await create(values);
         setUsers([...users, newUser.user]);
 
         close();
@@ -54,14 +60,7 @@ function App() {
     async function editUser(ev, id, close) {
         ev.preventDefault();
 
-        const { city, country, street, streetNumber, ...data } = Object.fromEntries(new FormData(ev.currentTarget));
-        data.address = {
-            city,
-            country,
-            street,
-            streetNumber
-        };
-        const newUser = await editById(id, data);
+        const newUser = await editById(id, values);
 
         setUsers(users.map(u => u._id === id ? newUser.user : u));
 
@@ -80,7 +79,9 @@ function App() {
                         error={error}
                         createUser={createUser}
                         deleteUser={deleteUser}
-                        editUser={editUser} />}
+                        editUser={editUser}
+                        values={values}
+                        setValues={setValues} />}
 
 
             </main>

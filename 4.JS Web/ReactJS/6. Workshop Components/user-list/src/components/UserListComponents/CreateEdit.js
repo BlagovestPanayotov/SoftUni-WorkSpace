@@ -1,8 +1,15 @@
+import * as validators from '../../utils/inputValidators';
+
+function validator(name, value) {
+    return validators[name](value);
+}
+
 function ModifyUser({
     user,
     onClose,
     createUser,
-    editUser
+    editUser,
+    onChange
 }) {
     return (
         <div className="overlay">
@@ -20,27 +27,23 @@ function ModifyUser({
                             </svg>
                         </button>
                     </header>
-                    <form onSubmit={(event) => user ? editUser(event, user._id, onClose) : createUser(event, onClose)}>
+                    <form onSubmit={(event) => user._id ? editUser(event, user._id, onClose) : createUser(event, onClose)}>
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="firstName">First name</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-user"></i></span>
-                                    <input id="firstName" name="firstName" type="text" defaultValue={user?.firstName} />
+                                    <input id="firstName" name="firstName" type="text" value={user.firstName} onChange={onChange}/>
                                 </div>
-                                <p className="form-error">
-                                    First name should be at least 3 characters long!
-                                </p>
+                                {validator('firstName', user.firstName)}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="lastName">Last name</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-user"></i></span>
-                                    <input id="lastName" name="lastName" type="text" defaultValue={user?.lastName} />
+                                    <input id="lastName" name="lastName" type="text" value={user.lastName} onChange={onChange} />
                                 </div>
-                                <p className="form-error">
-                                    Last name should be at least 3 characters long!
-                                </p>
+                                {validator('lastName', user.lastName)}
                             </div>
                         </div>
 
@@ -49,17 +52,17 @@ function ModifyUser({
                                 <label htmlFor="email">Email</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-envelope"></i></span>
-                                    <input id="email" name="email" type="text" defaultValue={user?.email} />
+                                    <input id="email" name="email" type="text" value={user.email} onChange={onChange} />
                                 </div>
-                                <p className="form-error">Email is not valid!</p>
+                                {validator('email', user.email)}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="phoneNumber">Phone number</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-phone"></i></span>
-                                    <input id="phoneNumber" name="phoneNumber" type="text" defaultValue={user?.phoneNumber} />
+                                    <input id="phoneNumber" name="phoneNumber" type="text" value={user.phoneNumber} onChange={onChange} />
                                 </div>
-                                <p className="form-error">Phone number is not valid!</p>
+                                {validator('phoneNumber', user.phoneNumber)}
                             </div>
                         </div>
 
@@ -67,9 +70,9 @@ function ModifyUser({
                             <label htmlFor="imageUrl">Image Url</label>
                             <div className="input-wrapper">
                                 <span><i className="fa-solid fa-image"></i></span>
-                                <input id="imageUrl" name="imageUrl" type="text" defaultValue={user?.imageUrl} />
+                                <input id="imageUrl" name="imageUrl" type="text" value={user.imageUrl} onChange={onChange} />
                             </div>
-                            <p className="form-error">ImageUrl is not valid!</p>
+                                {validator('imageUrl', user.imageUrl)}
                         </div>
 
                         <div className="form-row">
@@ -77,21 +80,17 @@ function ModifyUser({
                                 <label htmlFor="country">Country</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-map"></i></span>
-                                    <input id="country" name="country" type="text" defaultValue={user?.address.country} />
+                                    <input id="country" name="country" type="text" value={user.address.country} onChange={onChange} />
                                 </div>
-                                <p className="form-error">
-                                    Country should be at least 2 characters long!
-                                </p>
+                                {validator('country', user.address.country)}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="city">City</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-city"></i></span>
-                                    <input id="city" name="city" type="text" defaultValue={user?.address.city} />
+                                    <input id="city" name="city" type="text" value={user.address.city} onChange={onChange} />
                                 </div>
-                                <p className="form-error">
-                                    City should be at least 3 characters long!
-                                </p>
+                                {validator('city', user.address.city)}
                             </div>
                         </div>
 
@@ -100,21 +99,17 @@ function ModifyUser({
                                 <label htmlFor="street">Street</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-map"></i></span>
-                                    <input id="street" name="street" type="text" defaultValue={user?.address.street} />
+                                    <input id="street" name="street" type="text" value={user.address.street} onChange={onChange} />
                                 </div>
-                                <p className="form-error">
-                                    Street should be at least 3 characters long!
-                                </p>
+                                {validator('street', user.address.street)}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="streetNumber">Street number</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-house-chimney"></i></span>
-                                    <input id="streetNumber" name="streetNumber" type="text" defaultValue={user?.address.streetNumber} />
+                                    <input id="streetNumber" name="streetNumber" type="text" value={user.address.streetNumber} onChange={onChange} />
                                 </div>
-                                <p className="form-error">
-                                    Street number should be a positive number!
-                                </p>
+                                {validator('streetNumber', user.address.streetNumber)}
                             </div>
                         </div>
                         <div id="form-actions">

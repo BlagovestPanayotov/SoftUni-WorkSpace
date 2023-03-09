@@ -24,8 +24,10 @@ async function getById(id) {
         method: 'GET'
     });
 
+    const data = response.json();
 
-    return response.json();
+    return data;
+
 
 }
 

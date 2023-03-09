@@ -7,21 +7,51 @@ import NoUsers from './NoUsers';
 import User from './User';
 import UserDetails from './UserDetails';
 
-function Table({ users, error, createUser, deleteUser, editUser }) {
+function Table({ users, error, createUser, deleteUser, editUser, values, setValues }) {
 
     const [selectedUser, setSelectedUser] = useState(null);
     const [modifyForm, setModifyForm] = useState(false);
     const [deleteConformation, setDeleteConformation] = useState(false);
 
+
+    function onChange(event) {
+        const params = ['country', 'city', 'street', 'streetNumber'];
+        if (params.includes(event.target.name)) {
+            setValues(() => {
+                const data = { ...values };
+                data.address[event.target.name] = event.target.value;
+
+                return data;
+            });
+        } else {
+            setValues({ ...values, [event.target.name]: event.target.value });
+        }
+    };
+
     async function infoOnClick(id) {
         const data = await getById(id);
-        setSelectedUser(data.user);
+        setValues({ ...data.user });
+        setSelectedUser(values);
     };
 
     function onClose() {
         setSelectedUser(null);
         setModifyForm(false);
         setDeleteConformation(false);
+        setValues({
+            _id: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            imageUrl: '',
+            address: {
+                phoneNumber: '',
+                country: '',
+                city: '',
+                street: '',
+                streetNumber: ''
+            }
+        });
     };
 
     function onClickModifyUser(id) {
@@ -34,7 +64,8 @@ function Table({ users, error, createUser, deleteUser, editUser }) {
 
     async function onEditClick(id) {
         const data = await getById(id);
-        setModifyForm(data.user);
+        setValues({ ...data.user });
+        setModifyForm(true);
     }
 
 
@@ -43,7 +74,7 @@ function Table({ users, error, createUser, deleteUser, editUser }) {
     return (
         <>
             {selectedUser && <UserDetails {...selectedUser} onClose={onClose} />}
-            {modifyForm && <ModifyUser onClose={onClose} createUser={createUser} editUser={editUser} user={modifyForm} />}
+            {modifyForm && <ModifyUser onClose={onClose} createUser={createUser} editUser={editUser} user={values} onChange={onChange} />}
             {deleteConformation && <DeleteBox onClose={onClose} deleteUser={() => deleteUser(deleteConformation, onClose)} />}
 
             <div className="table-wrapper">
@@ -106,7 +137,7 @@ function Table({ users, error, createUser, deleteUser, editUser }) {
                         {users.length > 0 ?
                             users.map(u => <User
                                 {...u}
-                                key={u._id}
+                                key={u?._id}
                                 onClickModifyUser={() => onClickModifyUser(u._id)}
                                 infoOnClick={infoOnClick}
                                 onClickDeleteUser={() => onClickDeleteUser(u._id)}
