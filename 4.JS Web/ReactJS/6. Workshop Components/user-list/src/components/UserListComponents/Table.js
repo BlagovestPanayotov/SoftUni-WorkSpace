@@ -30,7 +30,7 @@ function Table({ users, error, createUser, deleteUser, editUser, values, setValu
 
     async function infoOnClick(id) {
         const data = await getById(id);
-        setValues({ ...data.user });
+        setValues(data.user);
         setSelectedUser(values);
     };
 
@@ -73,8 +73,8 @@ function Table({ users, error, createUser, deleteUser, editUser, values, setValu
 
     return (
         <>
-            {selectedUser && <UserDetails {...selectedUser} onClose={onClose} />}
-            {modifyForm && <ModifyUser onClose={onClose} createUser={createUser} editUser={editUser} user={values} onChange={onChange} />}
+            {selectedUser && <UserDetails {...values} onClose={onClose} />}
+            {modifyForm && <ModifyUser onClose={onClose} createUser={createUser} editUser={editUser} user={setSelectedUser} onChange={onChange} />}
             {deleteConformation && <DeleteBox onClose={onClose} deleteUser={() => deleteUser(deleteConformation, onClose)} />}
 
             <div className="table-wrapper">

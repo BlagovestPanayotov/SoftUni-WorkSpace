@@ -7,15 +7,9 @@ function UserDetails({
     email,
     imageUrl,
     phoneNumber,
-    address: {
-        country,
-        city,
-        street,
-        streetNumber
-    },
-        createdAt,
+    address,
+    createdAt,
     updatedAt,
-
     onClose
 }) {
     return (
@@ -49,7 +43,7 @@ function UserDetails({
                             <p>Phone Number: <strong>{phoneNumber}</strong></p>
                             <p>
                                 Address:
-                                <strong> {country}, {city}, {street} {streetNumber} </strong>
+                                <strong> {address?.country}, {address?.city}, {address?.street} {address?.streetNumber} </strong>
                             </p>
 
                             <p>Created on: <strong>{formatDate(createdAt)}</strong></p>
