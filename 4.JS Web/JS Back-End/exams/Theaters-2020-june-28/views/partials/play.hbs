@@ -1,0 +1,20 @@
+<div>
+  <div class="home-image">
+    <img src="{{imageUrl}}" alt="{{title}}" />
+  </div>
+  <div class="info">
+    <h4>{{title}}</h4>
+    {{#if user}}
+      <div class="info-buttons">
+        {{#if isOwner}}
+          <a class="btn details" href="/play/{{_id}}/details">Details</a>
+        {{else}}
+          {{#if isPublic}}
+            <a class="btn details" href="/play/{{_id}}/details">Details</a>
+          {{/if}}
+        {{/if}}
+        <span class="likes">{{userCount}} likes</span>
+      </div>
+    {{/if}}
+  </div>
+</div>
