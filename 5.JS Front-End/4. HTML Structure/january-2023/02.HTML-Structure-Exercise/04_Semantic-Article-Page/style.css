@@ -1,0 +1,15 @@
+body{
+    background-color: #e4e978;
+    width: 700px;
+}
+article{
+    padding: 5px 15px;
+    border: 1px solid #b2ad7d;
+    margin: 15px 10px;
+    background-color: #f2f4c0;
+}
+
+.post{
+    color: #5c6e91;
+    font-style: italic;
+}
