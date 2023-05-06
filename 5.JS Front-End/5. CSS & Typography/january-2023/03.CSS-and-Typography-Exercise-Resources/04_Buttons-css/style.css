@@ -1,0 +1,33 @@
+@import "https://use.fontawesome.com/releases/v5.10.2/css/all.css";
+
+body {
+  padding-left: 16px;
+  background-color: gray;
+}
+
+.button {
+  border: 1px solid black;
+  padding: 2px 8px;
+  border-radius: 16px;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(251, 251, 251);
+  background: transparent;
+  margin-left: 16px;
+  outline: none;
+}
+
+.fill {
+  background-color: rgb(51, 51, 51);
+  color: aliceblue;
+}
+
+.hover {
+  background-color: rgb(0, 102, 0);
+  color: rgb(51, 51, 51);
+}
+
+.button.fill.hover {
+  color: rgb(251, 251, 251);
+}
