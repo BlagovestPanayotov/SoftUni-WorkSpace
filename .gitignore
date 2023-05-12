@@ -12,6 +12,8 @@
 *.txt#
 *.mkv
 *.mkv#
+*.pdf
+*.pdf#
 streamContent
 streamContent (1)
 streamContent (2)
