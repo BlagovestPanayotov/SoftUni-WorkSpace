@@ -1,0 +1,19 @@
+#wrapper{
+    background-color: #dddddd;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #000000;
+    margin-left: 10px;
+}
+
+p{
+    font-size: 18px;
+}
+
+em{
+    font-style: italic;
+}
+
+h1{
+    text-align: center;
+}

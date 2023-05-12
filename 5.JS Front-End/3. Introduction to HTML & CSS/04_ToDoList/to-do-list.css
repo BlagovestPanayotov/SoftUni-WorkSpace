@@ -1,0 +1,17 @@
+main {
+  width: 500px;
+  background-color: #f7f381;
+  padding: 8px 24px;
+  box-shadow: 1px black;
+  border: 1px solid #f7f381;
+  box-shadow: 0 0 10px 2px #333;
+  margin: auto;
+}
+
+ol {
+  margin: 12px;
+}
+
+p,h1 {
+  text-align: center;
+}
