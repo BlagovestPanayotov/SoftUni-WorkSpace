@@ -1,0 +1,32 @@
+html {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  padding: 2em 4em;
+}
+
+header * {
+  display: inline-block;
+}
+
+header {
+  border-bottom: 1px solid black;
+}
+
+h2{
+    font-size: 2em;
+    margin-right: 3em;
+}
+
+header li a{
+    text-decoration: none;
+    color:green
+}
+
+header li{
+    margin:0 2em;
+}
+
+h1{
+    font-weight: 400;
+    font-family: serif;
+}
