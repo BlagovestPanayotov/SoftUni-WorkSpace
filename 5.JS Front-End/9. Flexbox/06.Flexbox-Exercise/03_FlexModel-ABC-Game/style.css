@@ -1,0 +1,56 @@
+html{
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+}
+div {
+  max-width: 15vw;
+  display: flex;
+  height: 35rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 5px;
+}
+span {
+  width: 30px;
+  padding: 20px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+div :nth-child(1) {
+  order: 9;
+}
+div :nth-child(2) {
+  order: 1;
+}
+div :nth-child(3) {
+  order: 10;
+}
+div :nth-child(4) {
+  order: 4;
+}
+div :nth-child(5) {
+  order: 8;
+}
+div :nth-child(6) {
+  order: 7;
+}
+div :nth-child(7) {
+  order: 11;
+}
+div :nth-child(8) {
+  order: 5;
+}
+div :nth-child(9) {
+  order: 6;
+}
+div :nth-child(10) {
+  order: 12;
+}
+div :nth-child(11) {
+  order: 0;
+}
+div :nth-child(12) {
+  order: 3;
+}
