@@ -1,0 +1,18 @@
+body,
+ul,
+li {
+  display: flex;
+}
+
+ul {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  gap: 2em;
+}
+
+li {
+  border: 2px solid black;
+  padding: 1em;
+  align-items: center;
+}
