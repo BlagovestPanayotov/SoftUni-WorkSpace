@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  background-color: rgb(238, 238, 238);
+  height: 100vh;
+  font-family: Helvetica, sans-serif;
+  flex-direction: column;
+  margin: 0;
+}
+
+header {
+  padding-left: 1em;
+  border-bottom: 2px solid black;
+  text-transform: uppercase;
+}
+main {
+  padding-left: 1em;
+}
+h2 {
+  font-family: "Times New Roman", Times, serif;
+}
+footer {
+  padding-left: 1em;
+  color: rgb(255, 255, 255);
+  background-color: rgb(102, 102, 102);
+}
+p {
+  margin-bottom: 2em;
+}
