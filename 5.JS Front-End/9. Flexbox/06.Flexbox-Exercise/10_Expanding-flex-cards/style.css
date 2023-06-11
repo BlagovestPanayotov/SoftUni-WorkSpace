@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  background-color: rgb(238, 238, 238);
+  justify-content: center;
+  width: 100vw;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+img {
+  flex-grow: 0;
+}
+img:hover {
+  flex-grow: 2;
+}
