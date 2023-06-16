@@ -1,0 +1,116 @@
+body {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main aside";
+  padding: 3em;
+  background-color: rgb(238, 238, 238);
+  gap: 1em 3em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1,
+h2,
+h3 {
+  font: 1em/1.2 Georgia, serif;
+}
+blockquote {
+  font-family: Georgia, serif;
+}
+header {
+  grid-area: header;
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+header p {
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  align-self: center;
+}
+main h1,
+main h2,
+main p {
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1.3em;
+}
+h3 {
+  font-size: 1.2em;
+}
+img {
+  display: block;
+  border: 2px solid black;
+  padding: 0.5em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255);
+}
+.first-image {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+.second-image {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+blockquote {
+  width: 45%;
+  float: right;
+  margin-left: 1em;
+  padding-left: 1em;
+  border-left: 2px solid lightgray;
+  font-style: italic;
+  color: grey;
+}
+blockquote p:nth-child(2) {
+  text-align: end;
+}
+
+@media (min-width: 1800px) {
+  html {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 1799px) {
+  html {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 1299px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 799px) {
+  html {
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width: 599px) {
+  html {
+    font-size: 14px;
+  }
+  .first-image {
+    float: none;
+  }
+  .second-image {
+    float: none;
+  }
+}
+
+@media (max-width: 499px) {
+  html {
+    font-size: 12px;
+  }
+}
