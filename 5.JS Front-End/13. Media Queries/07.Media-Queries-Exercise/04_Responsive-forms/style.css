@@ -1,0 +1,70 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+fieldset {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  position: relative;
+  padding: 2em 1em;
+  background-color: #f8f8f8;
+  margin: auto;
+}
+
+#login-label {
+  font-weight: 400;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-1px, -50%);
+  background-color: #fff;
+  border: 1px solid black;
+  padding: 5px 20px 5px 10px;
+}
+input {
+  color: 000000;
+}
+
+label {
+  font-weight: 600;
+}
+button {
+  background-color: #2d2d2d;
+  color: #fff;
+  border: 1px solid #2d2d2d;
+  border-radius: 4px;
+  padding: 4px;
+}
+i {
+  height: 0;
+  position: relative;
+  left: 25px;
+  top: 2px;
+}
+
+input:focus {
+  border: 2px solid black;
+}
+
+@media (max-width: 799px) {
+  label,
+  input {
+    display: block;
+  }
+  i {
+    height: 0;
+    top: 20px;
+    left: 2px;
+  }
+}
