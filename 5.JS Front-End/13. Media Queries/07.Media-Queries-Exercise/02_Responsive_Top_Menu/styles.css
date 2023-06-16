@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "header header header header"
+    "aside main main main"
+    "footer footer footer footer";
+  gap: 8px;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+header,
+aside,
+main,
+footer {
+  border-radius: 3px;
+  background-color: rgb(181, 216, 255);
+  padding: 10px 20px;
+}
+header {
+  grid-area: header;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+header h1 {
+  align-self: center;
+  display: inline-block;
+}
+header nav {
+  display: inline-block;
+}
+
+header nav ul {
+  list-style-type: none;
+  vertical-align: middle;
+  margin-top: 8px;
+}
+header nav ul li {
+  display: inline;
+}
+
+header nav ul a {
+  text-decoration: none;
+  color: rgb(53, 100, 153);
+  padding: 5px 15px;
+}
+
+aside {
+  grid-area: aside;
+}
+aside ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  margin-left: 10px;
+}
+aside ul li a {
+  display: block;
+  padding: 5px 0px;
+  color: rgb(86, 40, 129);
+  text-decoration: none;
+}
+main {
+  grid-area: main;
+}
+main ul {
+  margin-left: 32px;
+}
+footer {
+  grid-area: footer;
+}
+
+@media (max-width: 500px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "aside"
+      "main"
+      "footer";
+  }
+  header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title ."
+      ". nav";
+    column-gap: 0px;
+  }
+
+  header h1 {
+    grid-area: title;
+  }
+  header nav {
+    grid-area: nav;
+  }
+  header nav a {
+    display: block;
+    padding-left: 5px;
+  }
+  header nav ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
