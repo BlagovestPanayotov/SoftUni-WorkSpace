@@ -1,0 +1,55 @@
+/*
+btn bc - #786eff;
+
+*/
+
+section {
+  background-color: #f6f8f9;
+  width: 800px;
+  padding: 48px 32px 0 32px;
+  margin: 20px auto;
+  font-family: Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+}
+.info {
+  width: 40%;
+  padding-bottom: 48px;
+}
+.info .sub {
+  font-size: 12px;
+  font-weight: normal;
+  margin-bottom: 16px;
+  color: #273240;
+}
+.info .title {
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 24px;
+  color: #273240;
+}
+
+.info .desc {
+  font-size: 16px;
+  color: #929aa1;
+  padding-bottom: 18px;
+}
+
+.btn {
+  padding: 6px 16px;
+  font-weight: 600;
+  border: 1px solid black;
+  background: #f6f8f9;
+  border-radius: 4px;
+}
+.btn.btn-primary {
+  background-color: #786eff;
+  color: #f6f8f9;
+  border-color: #786eff;
+  margin-right: 12px;
+}
+img {
+  width: 35%;
+  align-self: end;
+}

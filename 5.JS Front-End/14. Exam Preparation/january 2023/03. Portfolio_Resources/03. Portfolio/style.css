@@ -1,0 +1,188 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*
+bg-section: #efefef
+font-color: #9e9e9e
+bold-font-color: #222222
+i-bc: #909090
+i-color: #ffffff
+*/
+
+/*  Basic styles  */
+body {
+  font-family: Raleway, sans-serif;
+  font-size: 21px;
+  color: #404040;
+}
+
+.content {
+  background: #efefef;
+  width: 95%;
+  margin: 30px auto;
+  height: 70vh;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+.info-desc {
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+
+.bolded {
+  color: #222222;
+}
+
+.divaider-vertical {
+  margin-top: 2rem;
+  height: 4em;
+  width: 0;
+  border: 1px solid black;
+}
+
+.divaider-horizontal {
+  margin-bottom: 1rem;
+  margin-right: 1em;
+  height: 0;
+  width: 4rem;
+  border: 1px solid black;
+  display: inline-block;
+}
+/* flex container */
+.flex-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 5rem;
+}
+
+.info {
+  width: 40%;
+}
+
+.img-container {
+  width: 50%;
+}
+
+/*  Hero  */
+
+#hero {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  left: 1675px;
+  top: 10px;
+  font-size: 1.5rem;
+}
+
+.menu i {
+  margin-left: 1rem;
+}
+#hero .img-container {
+  align-self: flex-end;
+}
+
+/* Camera */
+
+#camera .title {
+  display: inline-block;
+}
+#camera .img-container {
+  margin-left: 10rem;
+}
+#camera .social {
+  display: flex;
+  gap: 1rem;
+}
+#camera .social li {
+  font-size: 40px;
+  color: #9e9e9e;
+}
+
+/* Woman */
+
+#woman img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* gallery */
+#gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#gallery img {
+  width: 30%;
+}
+
+#gallery img:nth-child(2) {
+  scale: calc(1.5);
+}
+
+/* say hello */
+
+#say-hello {
+  position: relative;
+  text-align: center;
+}
+
+#say-hello p {
+  width: 50%;
+  margin: 2rem auto;
+}
+
+#say-hello form {
+  display: grid;
+  grid-template-areas:
+    "email subject"
+    "message message"
+    "btn btn";
+  gap: 1rem;
+  width: 40%;
+  margin: auto;
+}
+
+#say-hello form * {
+  background-color: transparent;
+  border: 1px solid black;
+  padding: 1em;
+}
+
+#say-hello form input:nth-child(1) {
+  grid-area: email;
+}
+#say-hello form input:nth-child(2) {
+  grid-area: subject;
+}
+#say-hello form textarea {
+  grid-area: message;
+}
+#say-hello .submit-btn {
+  grid-area: btn;
+  background-color: black;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+#say-hello .foo {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+}
