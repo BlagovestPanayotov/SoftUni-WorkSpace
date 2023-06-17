@@ -1,0 +1,46 @@
+@import url("typography.css");
+@import url("reset.css");
+
+body {
+    background-color: lightgrey;
+}
+
+table {
+    margin: auto;
+    width:90%;
+    border-collapse:collapse;
+    border: 1px solid grey; 
+	
+}
+
+.table-header {
+    background-color: black;
+    color: white;
+}
+
+.table-rows {
+    background-color: rgb(211, 205, 189);
+}
+
+td,th {
+    padding: 3px;;
+    border: 1px solid grey;
+}
+
+.table-header {
+    border: 1px solid gray;
+    text-align: left;
+}
+
+.table-rows:nth-child(2n+3) {
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+
