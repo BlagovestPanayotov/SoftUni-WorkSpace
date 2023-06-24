@@ -1,0 +1,296 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+html {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  background-color: black;
+}
+
+body {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 2.1rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.7rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+}
+
+/* header */
+
+.page-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 7rem;
+}
+
+.page-header li {
+  display: inline-block;
+  margin-left: 3rem;
+}
+
+.page-header a {
+  text-decoration: none;
+  color: #000;
+}
+
+.page-header .btn.btn-log-in {
+  border: none;
+  background-color: transparent;
+}
+
+.page-header .btn.btn-sign-up {
+  border-color: #ade2df;
+  background-color: #ade2df;
+}
+
+/* entry */
+
+.section-entry {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #ade2df;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.info {
+  margin-bottom: 1.5rem;
+}
+
+.btn.btn-app {
+  color: #fff;
+  background: #000;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.8rem;
+}
+
+.btn.btn-app i {
+  margin-right: 1rem;
+}
+
+.section-entry a:nth-of-type(2) {
+  margin-left: 1rem;
+}
+
+/* achievements */
+
+.achievements {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 8rem;
+}
+
+.card {
+  text-align: center;
+  border-right: 0.2rem solid #f3f5fa;
+}
+
+.achievements .card:first-child {
+  border-left: 0.2rem solid #f3f5fa;
+}
+
+/* everithing-you-get */
+
+.everithing-you-get {
+  background-color: #ade2df;
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+}
+
+.phone-img {
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 0.1rem dashed #98b8b6;
+}
+
+.everithing-you-get .info {
+  width: 40%;
+  padding: 3rem 1rem 3rem 3rem;
+  align-self: center;
+}
+
+.everithing-you-get .title {
+  margin-bottom: 1rem;
+}
+.everithing-you-get .sub {
+  font-weight: bold;
+  font-size: 21px;
+  margin-bottom: 0.5rem;
+}
+.everithing-you-get .desc {
+  margin-bottom: 1.5rem;
+}
+.everithing-you-get .btn {
+  border: none;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-bottom: 1px solid black;
+  color: black;
+}
+.everithing-you-get .btn i {
+  margin-left: 1rem;
+}
+
+/* plans */
+
+.plans {
+  background-color: #f3f5fa;
+  padding-bottom: 3rem;
+}
+
+.plans .plans-header {
+  text-align: center;
+  padding-top: 2.3rem;
+  padding-bottom: 2.3rem;
+}
+.plans .card {
+  background: #fff;
+}
+.plans .btn {
+  background-color: #ade2df;
+  border-color: #ade2df;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.plans .title {
+  margin-bottom: 1.5rem;
+}
+
+.plans .plans-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.plans .plans-container .card {
+  padding: 1.5rem;
+}
+
+.plans h4 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+.plans .card p {
+  text-align: left;
+}
+.plans .card .price {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: 0.2rem solid #f3f5fa;
+}
+
+.plans .card .small-down {
+  font-weight: normal;
+  font-size: medium;
+  margin-left: 0.5rem;
+}
+
+.plans .card {
+  font-size: 14px;
+}
+
+.plans .card li {
+  text-align: left;
+  margin-bottom: 0.3rem;
+}
+
+.plans .card .btn {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #ade2df;
+}
+.contacts h4 {
+  padding-top: 0;
+  margin-bottom: 0;
+}
+.contacts p {
+  font-size: 1.2rem;
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+}
+.contacts .btn {
+  align-self: stretch;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+}
+
+/* get-started */
+
+.get-started{
+    background: #ade2df;
+    text-align: center;
+    padding: 3rem;
+}
+
+.get-started .get-started-container{
+    width:50%;
+    margin:auto
+}
+
+.get-started .btn.btn-app{
+    margin-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.get-started .get-started-container .btn:nth-child(4){
+    margin-left: 0.5rem;
+}
+
+/* page-footer */
+.page-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.page-footer li{
+    display: inline-block;
+    margin-right: 1rem;
+}

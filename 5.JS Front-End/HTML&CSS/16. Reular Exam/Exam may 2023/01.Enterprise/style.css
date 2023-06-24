@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap");
+
+/*
+card-bg:#d9d9d9;
+h3-color:59595d;
+p-color:#595959;
+*/
+
+.content {
+  width: 100vw;
+  display: flex;
+  background-color: #d9d9d9;
+  height: 70vw;
+  font-size: 26px;
+  justify-content: space-around;
+  padding: 5rem;
+  color: #595959;
+  font-family: Inter, sans-serif;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  box-shadow: 0.75rem 0.75rem 1.5rem #cbcbcb;
+  height: 55%;
+}
+
+.card > img {
+  display: block;
+  width: 100%;
+  height: 50%;
+}
+
+.sub {
+  color: #59595d;
+}
+
+.title {
+  font-weight: normal;
+  margin-bottom: 2rem;
+  color: black;
+  font-size: 1.5em;
+}
+
+.info {
+  padding: 4rem;
+}
+
+.img-container {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  overflow: hidden;
+  object-fit: fill;
+}
+.img-container img {
+  width: 100%;
+}
+.foo {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid black;
+  padding-top: 1rem;
+}
+
+.foo time {
+  color: #c0bbb3;
+  margin-left: auto;
+}
