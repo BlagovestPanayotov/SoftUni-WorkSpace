@@ -1,0 +1,7 @@
+<li *ngFor="let e of toDos"> <span  [class]="e.completed ? 'completed' : ''">{{e.desc}}</span>
+    <div class="tools">
+        <button class="complete" (click)="onComplete(e)"><i class="fas fa-check"></i></button>
+        <button class="edit" (click)="e.onEdit(e)">EDIT</button>
+        <button class="delete" (click)="onDelete(e)"><i class="fas fa-times"></i></button>
+    </div>
+</li>

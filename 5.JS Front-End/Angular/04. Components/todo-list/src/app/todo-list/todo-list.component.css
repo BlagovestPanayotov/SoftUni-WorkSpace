@@ -1,0 +1,21 @@
+.error-info {
+    margin-top: 20px;
+    color: rgb(2, 84, 161);
+}
+
+.todolist {
+    padding: 20px 0;
+}
+
+.todolist h3 {
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.todolist {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #fff;
+    box-shadow: 4px 4px 5px rgba(82, 82, 82, .4);
+    text-align: center;
+}

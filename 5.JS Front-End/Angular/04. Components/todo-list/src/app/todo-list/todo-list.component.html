@@ -1,0 +1,7 @@
+<div class="todolist">
+    <h3>List of Works Todo:</h3>
+    <p class="error-info" *ngIf="toDos.length==0">Nothing To Do</p>
+    <ul>
+        <app-todo-list-item *ngIf="toDos.length>0"  [toDos]='toDos' ></app-todo-list-item>
+    </ul>
+</div>
