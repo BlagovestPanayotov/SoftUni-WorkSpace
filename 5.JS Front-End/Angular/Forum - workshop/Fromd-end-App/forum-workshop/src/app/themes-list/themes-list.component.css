@@ -62,3 +62,9 @@
 time {
     font-weight: bold;
 }
+
+.welcome-wrapper{
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}

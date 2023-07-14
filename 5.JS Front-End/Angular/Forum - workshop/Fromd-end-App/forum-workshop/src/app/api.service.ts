@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Post } from './types/post';
 import { Theme } from './types/theme';
+import { publicUser } from './types/public-user';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +18,8 @@ export class ApiService {
   }
   getThemes() {
     return this.http.get<Theme[]>(environment.appUrl + '/themes');
+  }
+  getThemeById(id:string){
+    return this.http.get<Theme>(environment.appUrl + `/themes/${id}`)
   }
 }

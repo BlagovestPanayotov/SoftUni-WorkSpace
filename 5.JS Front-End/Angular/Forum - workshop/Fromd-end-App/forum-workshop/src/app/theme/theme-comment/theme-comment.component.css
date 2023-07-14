@@ -1,0 +1,77 @@
+.comment {
+  margin-top: 1em;
+  border: 1px solid;
+  border-radius: 0.3em;
+  width: 100%;
+  padding: 1em;
+}
+
+.comment header p {
+  padding: 0.3em;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 1px dashed;
+  margin-right: 0;
+}
+
+.comment-main {
+  margin: 1em;
+  display: flex;
+}
+
+.userdetails {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.userdetails p {
+  padding-left: 0;
+  text-align: left;
+}
+
+.post-content p {
+  padding-left: 1.5em;
+}
+
+.userdetails div {
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+}
+
+.userdetails img {
+  padding: 0;
+  align-self: center;
+  margin: 1em 0;
+  width: 5em;
+  height: 5em;
+  border: 1px solid;
+}
+
+.footer {
+  font-size: 1.5em;
+  border-top: 1px dashed;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: rgb(0, 128, 182);
+}
+
+.footer i {
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.footer p {
+  padding-left: 0.5em;
+}
+
+.footer .fas.fa-thumbs-up {
+  color: green;
+}
+
+.footer .fas.fa-thumbs-down {
+  color: red;
+}
