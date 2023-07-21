@@ -8,21 +8,24 @@ import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     UserRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
-export class UserModule { }
+export class UserModule {}
