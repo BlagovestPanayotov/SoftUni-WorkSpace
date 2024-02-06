@@ -1,7 +1,5 @@
 "use strict";
-let age = 20;
-if (age < 50) {
-    age += 10;
-    console.log(age);
-}
+let user = [1, "Bobo"];
+user[0].toFixed();
+user[1].length;
 //# sourceMappingURL=index.js.map
