@@ -5,31 +5,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-function MinLength(length) {
-    return (target, propertyName) => {
-        let value;
-        const desctiptor = {
-            get() {
-                return value;
-            },
-            set(newValue) {
-                if (newValue.length < length) {
-                    throw new Error(`${propertyName} should be ot least ${length} characters long.`);
-                }
-                value = newValue;
-            },
-        };
-        Object.defineProperty(target, propertyName, desctiptor);
-    };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+const watchedParameters = [];
+function Watch(target, methodName, parameterIndex) {
+    watchedParameters.push({
+        methodName,
+        parameterIndex,
+    });
 }
-class User {
-    constructor(password) {
-        this.password = password;
+class Vehicle {
+    move(speed) {
+        console.log(speed);
     }
 }
 __decorate([
-    MinLength(4)
-], User.prototype, "password", void 0);
-let user = new User("1234");
-console.log(user.password);
+    __param(0, Watch)
+], Vehicle.prototype, "move", null);
+console.log(watchedParameters);
 //# sourceMappingURL=index.js.map
