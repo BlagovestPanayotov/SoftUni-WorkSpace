@@ -1,14 +1,7 @@
-type Draggable = {
-  drag: () => void;
-};
+// Literal (exaxt, specific)
 
-type Resizable = {
-  resize: () => void;
-};
+type Quantity = 50 | 100;
 
-type UIWidget = Draggable & Resizable;
+let quantity: Quantity = 50;
 
-let textBox: UIWidget = {
-  drag: () => {},
-  resize: () => {},
-};
+type Metric = "cm" | "inch";
