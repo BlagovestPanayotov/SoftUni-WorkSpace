@@ -1,8 +1,12 @@
-let phone1 = document.getElementById("phone") as HTMLInputElement;
-let phone2 = <HTMLInputElement>document.getElementById("phone");
+function render(document: unknown) {
+  // Narrowing
+  if (typeof document === "string") {
+    document.toLowerCase();
+  }
 
-// HTMLElement
-// HTMLInputElement
-
-phone1.value;
-phone2.value;
+  if (document instanceof WordDocument) {
+    document.move();
+  }
+  document.fly();
+  document.whateverWeWant();
+}
