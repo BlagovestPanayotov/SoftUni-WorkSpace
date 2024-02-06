@@ -1,7 +1,27 @@
-class KeyValuePair<K, V> {
-  constructor(public key: K, public value: V) {}
+// function wrapInArray<T>(value: T) {
+//   return [value];
+// }
+
+// let number = wrapInArray(1);
+// let string = wrapInArray("s");
+
+//////////////
+
+// class ArrayUtils {
+//   wrapInArray<T>(value: T) {
+//     return [value];
+//   }
+// }
+
+// let util = new ArrayUtils();
+// let string = util.wrapInArray("s");
+
+///////////////
+
+class ArrayUtils {
+  static wrapInArray<T>(value: T) {
+    return [value];
+  }
 }
 
-let pair = new KeyValuePair<number, string>(1, "a");
-let pair2 = new KeyValuePair<string, string>("b", "a");
-let pair3 = new KeyValuePair(true, "a");
+let string = ArrayUtils.wrapInArray("s");
