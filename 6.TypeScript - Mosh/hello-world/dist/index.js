@@ -6,21 +6,12 @@ class Store {
     add(obj) {
         this._objects.push(obj);
     }
-}
-class CompressibleStore extends Store {
-    compress() { }
-}
-let store = new CompressibleStore();
-store.compress();
-class SearchableStore extends Store {
-    find(name) {
-        return this._objects.find((obj) => obj.name === name);
+    find(property, value) {
+        return this._objects.find((obj) => obj[property] === value);
     }
 }
-class ProductStore extends Store {
-    filterByCategory(category) {
-        console.log(category);
-        return [];
-    }
-}
+const store = new Store();
+store.add({ name: "a", price: 1 });
+store.find("name", "a");
+store.find("price", "1");
 //# sourceMappingURL=index.js.map
