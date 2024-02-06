@@ -1,6 +1,9 @@
-let age: number = 20; // tsc index.ts
+let sales = 123_456_789;
+let course = "TypeScript";
+let is_published = true;
 
-if (age < 50) {
-  age += 10;
-  console.log(age);
+let level;
+
+function render(document: any) {
+  console.log(document);
 }
