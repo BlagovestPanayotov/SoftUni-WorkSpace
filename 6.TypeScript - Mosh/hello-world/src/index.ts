@@ -24,6 +24,11 @@ class Student extends Person {
   }
 }
 
-const student = new Student(1, "Bobo", "Smile");
+class Teacher extends Person {
+  override get fullName() {
+    return "Professor " + super.fullName;
+  }
+}
 
-console.log(student);
+let teacher = new Teacher("Bobo", "Smile");
+console.log(teacher.fullName);
