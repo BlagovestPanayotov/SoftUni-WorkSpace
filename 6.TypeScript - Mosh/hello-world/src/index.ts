@@ -14,17 +14,25 @@ class Account {
     // Record a transaction
     this._balance += amount;
   }
-  getBalance(): number {
+
+  get balance(): number {
     return this._balance;
   }
 
-  private calculateTax() {}
+  // set balance(value: number) {
+  //   if (value < 0) {
+  //     throw new Error("Invalid value");
+  //   }
+  //   this._balance = value;
+  // }
+
+  // private calculateTax() {}
 }
 
 const account = new Account(1, "Bobo", 1000);
-console.log(account.getBalance());
 
 account.deposit(1000);
+console.log(account.balance);
 console.log(account instanceof Account);
 console.log(account);
 
