@@ -1,1 +1,3 @@
-import { Circle, Square } from "./shapes";
+import { calculateTax } from "./tax";
+
+console.log(calculateTax(1000));
