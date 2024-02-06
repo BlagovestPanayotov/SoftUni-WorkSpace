@@ -1,9 +1,3 @@
-let sales = 123_456_789;
-let course = "TypeScript";
-let is_published = true;
+let numbers: number[] = [];
 
-let level;
-
-function render(document: any) {
-  console.log(document);
-}
+numbers.forEach((n) => n.toString());
