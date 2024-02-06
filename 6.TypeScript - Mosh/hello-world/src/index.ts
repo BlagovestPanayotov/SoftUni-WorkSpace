@@ -5,11 +5,11 @@ class Person {
     return this.firstName + " " + this.lastName;
   }
 
-  walk() {
+  private walk() {
     console.log("Walking");
   }
 
-  talk() {
+  protected talk() {
     console.log("Talking");
   }
 }
@@ -20,6 +20,8 @@ class Student extends Person {
   }
 
   takeTest() {
+    this.walk();
+    this.talk();
     console.log("Taking test");
   }
 }
