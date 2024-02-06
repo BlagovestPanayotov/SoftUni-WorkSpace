@@ -1,3 +1,3 @@
 import { calculateTax } from "./tax";
 
-console.log(calculateTax(1000));
+console.log(calculateTax());
