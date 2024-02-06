@@ -3,23 +3,23 @@ interface Product {
   price: number;
 }
 
-class Store<T> {
-  protected _objects: T[] = [];
+// Optional properties
+type Optional<T> = {
+  [K in keyof T]?: T[K];
+};
 
-  add(obj: T): void {
-    this._objects.push(obj);
-  }
+// Nullable propetries
+type Nullable<T> = {
+  [K in keyof T]: T[K] | null;
+};
 
-  // if T is Product
-  // keyof T => 'name' | 'price'
-  find(property: keyof T, value: unknown): T | undefined {
-    return this._objects.find((obj) => obj[property] === value);
-  }
-}
+type ReadOnly<T> = {
+  // Index signutare
+  // keyof
+  readonly [K in keyof T]: T[K];
+};
 
-const store = new Store<Product>();
-
-store.add({ name: "a", price: 1 });
-
-store.find("name", "a");
-store.find("price", "1");
+let product: ReadOnly<Product> = {
+  name: "a",
+  price: 1,
+};
