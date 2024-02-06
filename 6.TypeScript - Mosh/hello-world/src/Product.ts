@@ -1,3 +1,0 @@
-interface Product {
-  name: string;
-}
