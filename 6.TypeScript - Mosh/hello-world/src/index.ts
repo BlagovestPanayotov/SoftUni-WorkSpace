@@ -1,14 +1,11 @@
-type Employee = {
-  readonly id: number;
-  name: string;
-  fax?: number;
-  retire: (date: Date) => void;
-};
+function kgToLbs(weight: number | string): number {
+  // Narrowing
 
-let empluyee: Employee = {
-  id: 1,
-  name: "Bobo",
-  retire: (date: Date) => {
-    console.log(date);
-  },
-};
+  if (typeof weight === "number") {
+    return weight * 2.2;
+  }
+  return parseInt(weight) * 2.2;
+}
+
+kgToLbs(10);
+kgToLbs("10kg");

@@ -1,7 +1,10 @@
 "use strict";
-const small = 1;
-const medium = 2;
-const large = 3;
-let mySize = 2;
-console.log(mySize);
+function kgToLbs(weight) {
+    if (typeof weight === "number") {
+        return weight * 2.2;
+    }
+    return parseInt(weight) * 2.2;
+}
+kgToLbs(10);
+kgToLbs("10kg");
 //# sourceMappingURL=index.js.map
