@@ -1,25 +1,18 @@
-type ComponentOptions = {
-  selector: string;
-};
-
-// Decorator factory
-function Component(options: ComponentOptions) {
-  return (constructor: Function) => {
-    console.log("Component decorator called");
-    constructor.prototype.option = options;
-    constructor.prototype.uniqueId = Date.now();
-    constructor.prototype.insertInDom = () => {
-      console.log("Insetring the component in the DOM");
-    };
+function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
+  const original = descriptor.value as Function;
+  descriptor.value = function (...args: any) {
+    console.log("Before");
+    original.call(this, ...args);
+    console.log("After");
   };
 }
 
-function Pipe(constructor: Function) {
-  console.log("Pipe decorator called");
-  constructor.prototype.pipe = true;
+class Person {
+  @Log
+  say(message: string) {
+    console.log("Person says " + message);
+  }
 }
 
-@Component({ selector: "#my-profile" })
-@Pipe
-// f(g(x))
-class ProfileComponent {}
+let person = new Person();
+person.say("hello");
