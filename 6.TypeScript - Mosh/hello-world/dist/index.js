@@ -15,4 +15,5 @@ class Account {
 const account = new Account(1, "Bobo", 1000);
 account.deposit(1000);
 console.log(account instanceof Account);
+console.log(account);
 //# sourceMappingURL=index.js.map
