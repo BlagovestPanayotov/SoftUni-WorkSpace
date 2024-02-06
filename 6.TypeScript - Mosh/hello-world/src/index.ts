@@ -1,7 +1,14 @@
-// 1, 'Bobo'
+const small = 1;
+const medium = 2;
+const large = 3;
 
-let user: [number, string] = [1, "Bobo"];
+// PascalCace
+const enum Size {
+  Small = 1, //default is 0. If we set naother number in the firest element, we will have the next element in ascending order
+  // if we set it to a string, we must scpecify the value of each element
+  Medium,
+  Large,
+}
 
-user[0].toFixed();
-user[1].length;
-user.push(1);
+let mySize: Size = Size.Medium;
+console.log(mySize);
