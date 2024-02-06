@@ -6,3 +6,4 @@ function calculateTax(income: number, taxYear: number = 2022): number {
 }
 
 calculateTax(10_000);
+calculateTax(10_000, 2023);
