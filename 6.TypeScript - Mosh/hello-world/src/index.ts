@@ -1,17 +1,35 @@
-// interface Person{
-//   name: string
-// }
-
-class Person {
-  constructor(public name: string) {}
+interface Product {
+  name: string;
+  price: number;
 }
 
-class Customer extends Person {}
+class Store<T> {
+  protected _objects: T[] = [];
 
-function echo<T extends Person>(value: T): T {
-  return value;
+  add(obj: T): void {
+    this._objects.push(obj);
+  }
 }
 
-echo({ name: "Bobo", age: 33 });
-echo(new Person("p"));
-echo(new Customer("c"));
+// Pass on the generic type parameter
+class CompressibleStore<T> extends Store<T> {
+  compress() {}
+}
+
+let store = new CompressibleStore<Product>();
+store.compress();
+
+// Restrict the generic type parameter
+class SearchableStore<T extends { name: string }> extends Store<T> {
+  find(name: string): T | undefined {
+    return this._objects.find((obj) => obj.name === name);
+  }
+}
+
+// Fix or terminating the generic type parameter
+class ProductStore extends Store<Product> {
+  filterByCategory(category: string): Product[] {
+    console.log(category);
+    return [];
+  }
+}

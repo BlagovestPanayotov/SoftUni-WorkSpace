@@ -1,15 +1,26 @@
 "use strict";
-class Person {
-    constructor(name) {
-        this.name = name;
+class Store {
+    constructor() {
+        this._objects = [];
+    }
+    add(obj) {
+        this._objects.push(obj);
     }
 }
-class Customer extends Person {
+class CompressibleStore extends Store {
+    compress() { }
 }
-function echo(value) {
-    return value;
+let store = new CompressibleStore();
+store.compress();
+class SearchableStore extends Store {
+    find(name) {
+        return this._objects.find((obj) => obj.name === name);
+    }
 }
-echo({ name: "Bobo", age: 33 });
-echo(new Person("p"));
-echo(new Customer("c"));
+class ProductStore extends Store {
+    filterByCategory(category) {
+        console.log(category);
+        return [];
+    }
+}
 //# sourceMappingURL=index.js.map
