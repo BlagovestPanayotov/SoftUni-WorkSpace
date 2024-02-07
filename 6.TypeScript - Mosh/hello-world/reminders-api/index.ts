@@ -1,3 +1,5 @@
-const x = 1;
+import express from "express";
 
-console.log(1);
+const app = express();
+
+app.listen(8000, () => console.log("Server is running on port 8000..."));
