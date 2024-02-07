@@ -1,9 +1,13 @@
 import "./App.css";
+import ReminderList from "./components/ReminderList";
+import Reminder from "./models/reminder";
+
+const reminders: Reminder[] = [{ id: 1, title: "Reminder1" }];
 
 function App() {
   return (
     <div className="App">
-      <button className="btn btn-primary">Click Me</button>
+      <ReminderList items={reminders} />
     </div>
   );
 }
