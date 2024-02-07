@@ -1,15 +1,19 @@
 import { Router } from "express";
 import CreateReminderDto from "../dtos/create-reminders";
+import Reminder from "../models/reminder";
 
 const remindersRouter = Router();
+const reminders: Reminder[] = [];
 
 remindersRouter.get("/", (req, res) => {
-  res.send("List of reminders");
+  res.json(reminders);
 });
 
 remindersRouter.post("/", (req, res) => {
   const { title } = req.body as CreateReminderDto;
-  res.json(title);
+  const reminder = new Reminder(title);
+  reminders.push(reminder);
+  res.status(201).json(reminder);
 });
 
 export default remindersRouter;
